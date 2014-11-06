@@ -1,6 +1,6 @@
 .DS_Store
+*~
 */bin/
 */build/
 */dist/
-*~
-/RobotTemplate/nbproject/private
+*/nbproject/private/
