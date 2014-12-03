@@ -51,8 +51,8 @@ public class RobotMap {
         driveSystemRobotDrive.setSensitivity(0.5);
         driveSystemRobotDrive.setMaxOutput(1.0);
         // In a two-motor drive, both are referred to as Rear motors for inversion
-        driveSystemRobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, false);
-        driveSystemRobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, false);
+        driveSystemRobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+        driveSystemRobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
         
         collectorArmArmPosition = new AnalogChannel(1, 1);
 	LiveWindow.addSensor("CollectorArm", "Arm Position", collectorArmArmPosition);
@@ -84,7 +84,7 @@ public class RobotMap {
         shootingMechanismShooterTrigger = new DoubleSolenoid(1, 3, 4);      
 	
         
-        lightRingSpike2 = new Relay(1, 2);
+        lightRingSpike2 = new Relay(1, 2, Relay.Direction.kForward);
 	LiveWindow.addActuator("LightRing", "Spike 2", lightRingSpike2);
         
         compressorSystemCompressor1 = new Compressor(1, 1, 1, 1);

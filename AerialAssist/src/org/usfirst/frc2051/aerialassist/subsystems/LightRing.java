@@ -29,4 +29,12 @@ public class LightRing extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
+    public void on()
+    {
+        spike2.set(Relay.Value.kOn);
+    }
+    public void off()
+    {
+        spike2.set(Relay.Value.kOff);
+    }
 }
