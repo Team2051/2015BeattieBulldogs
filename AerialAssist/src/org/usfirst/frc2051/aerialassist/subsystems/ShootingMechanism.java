@@ -32,4 +32,34 @@ public class ShootingMechanism extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
+    
+    //Pulls launcher back towards compressor
+    public void reloadBack()
+    {
+        shooterReloadTalon8.set(1);
+    }
+    //Pushes launcher forward, towards ball
+    public void reloadForward()
+    {
+        shooterReloadTalon8.set(-1);
+    }
+    
+    //Stops launcher movement
+    public void reloadStop()
+    {
+        shooterReloadTalon8.set(0);
+    }
+    
+    //Fire ball thingymabobber
+    public void fire()
+    {
+        shooterTrigger.set(DoubleSolenoid.Value.kReverse);
+    }
+    
+    //unfire ball
+    public void unfire()
+    {
+        shooterTrigger.set(DoubleSolenoid.Value.kForward);
+    }
+    
 }

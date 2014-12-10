@@ -29,7 +29,7 @@ public class CollectorArm extends Subsystem
 
     // How fast to move the arm
     private static final double armSpeed = 0.5;
-    
+    private static final double ballSpeed = .75;    
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public void initDefaultCommand() 
@@ -40,7 +40,10 @@ public class CollectorArm extends Subsystem
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    
+    public void armStop()
+    {
+        armAngleTalon56.set(0);
+    }
    //Increase arm angle towards 90 degrees _|
     public void armUp()
     {
@@ -61,32 +64,37 @@ public class CollectorArm extends Subsystem
     }
     
     //Is arm as high as possible?
-    public void armHighLimit()
+    public boolean armHighLimit()
     {
-        
+        return !armHighLimit.get();
     }
     
     //Is arm as low as possible?
-    public void armLowLimit()
+    public boolean armLowLimit()
     {
-        
+        return !armLowLimit.get();
     }
     
-    //Spin ball collector wheels
+    //Spin ball collector wheel
     public void ballCollect()
     {
-        
+        ballCollectorTalon7.set(ballSpeed);
     }
     
+    //Stop ball collector wheel
+    public void ballStop()
+    {
+        ballCollectorTalon7.set(0);
+    }
     //Push collector arm up
     public void collectorUp()
     {
-        
+        collectorPosition.set(DoubleSolenoid.Value.kForward);
     }
     
     //Push collector arm down
     public void collectorDown()
     {
-        
+        collectorPosition.set(DoubleSolenoid.Value.kReverse);
     }
 }
