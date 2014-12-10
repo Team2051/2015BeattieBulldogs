@@ -56,7 +56,8 @@ public class CollectorArm extends Subsystem
     //Detect current angle of arm
     public double armDetectAngle()
     {
-        return armPosition.getVoltage();  
+        return armPosition.getVoltage();
+        
     }
     
     //Is arm as high as possible?
