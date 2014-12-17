@@ -13,8 +13,8 @@ import org.usfirst.frc2051.aerialassist.Robot;
 /**
  *
  */
-public class  ReloadCommand extends Command {
-    public ReloadCommand() {
+public class  ReloadAutoBackCommand extends Command {
+    public ReloadAutoBackCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -26,12 +26,20 @@ public class  ReloadCommand extends Command {
     protected void initialize() {
     }
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-        Robot.shootingMechanism.reloadBack();
+    protected void execute() 
+    {
+        if(!Robot.shootingMechanism.shooterCharged())
+        {
+             Robot.shootingMechanism.reloadBack();
+        }
+        else
+        {
+            Robot.shootingMechanism.reloadStop();
+        }
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return Robot.shootingMechanism.shooterCharged();
     }
     // Called once after isFinished returns true
     protected void end() {

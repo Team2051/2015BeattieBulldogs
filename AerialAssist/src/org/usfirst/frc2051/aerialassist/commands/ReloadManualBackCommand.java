@@ -13,8 +13,8 @@ import org.usfirst.frc2051.aerialassist.Robot;
 /**
  *
  */
-public class  ReloadManualDriveCommand extends Command {
-    public ReloadManualDriveCommand() {
+public class  ReloadManualBackCommand extends Command {
+    public ReloadManualBackCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -27,7 +27,14 @@ public class  ReloadManualDriveCommand extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.shootingMechanism.reloadForward();
+        if(Robot.shootingMechanism.shooterCharged())
+        {
+            Robot.shootingMechanism.reloadStop();
+        }
+        else
+        {
+            Robot.shootingMechanism.reloadBack();
+        }
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

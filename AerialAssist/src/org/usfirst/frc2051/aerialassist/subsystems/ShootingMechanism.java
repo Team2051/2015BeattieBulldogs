@@ -62,4 +62,15 @@ public class ShootingMechanism extends Subsystem {
         shooterTrigger.set(DoubleSolenoid.Value.kForward);
     }
     
+    //get status of limit switch
+    public boolean shooterForward()
+    {
+        return !shooterForward.get();
+    }
+    
+    //get status of limit switch
+    public boolean shooterCharged()
+    {
+        return !shooterCharged.get();
+    }
 }

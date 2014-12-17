@@ -69,16 +69,15 @@ public class RobotMap {
         collectorArmArmLowLimit = new DigitalInput(1, 5);
 	LiveWindow.addSensor("CollectorArm", "Arm Low Limit", collectorArmArmLowLimit);
         
-        collectorArmCollectorPosition = new DoubleSolenoid(1, 1, 2);      
-	
+        collectorArmCollectorPosition = new DoubleSolenoid(1, 1, 2);
         
         shootingMechanismShooterReloadTalon8 = new Talon(1, 5);
 	LiveWindow.addActuator("ShootingMechanism", "Shooter Reload Talon 8", (Talon) shootingMechanismShooterReloadTalon8);
         
-        shootingMechanismShooterForward = new DigitalInput(1, 2);
+        shootingMechanismShooterForward = new DigitalInput(1, 3);
 	LiveWindow.addSensor("ShootingMechanism", "Shooter Forward", shootingMechanismShooterForward);
         
-        shootingMechanismShooterCharged = new DigitalInput(1, 3);
+        shootingMechanismShooterCharged = new DigitalInput(1, 2);
 	LiveWindow.addSensor("ShootingMechanism", "Shooter Charged", shootingMechanismShooterCharged);
         
         shootingMechanismShooterTrigger = new DoubleSolenoid(1, 3, 4);      
