@@ -73,7 +73,7 @@ public class OI {
         accessoryButton7 = new JoystickButton(accessoryStick, 7);
         accessoryButton7.whileHeld(new ReloadManualBackCommand());
         accessoryButton6 = new JoystickButton(accessoryStick, 6);
-        accessoryButton6.whenPressed(new CollectorIntakeCommand());
+        accessoryButton6.whileHeld(new CollectorIntakeCommand());
         accessoryButton5 = new JoystickButton(accessoryStick, 5);
         accessoryButton5.whenPressed(new CollectorUpCommand());
         accessoryButton4 = new JoystickButton(accessoryStick, 4);
