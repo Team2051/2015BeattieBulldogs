@@ -68,7 +68,7 @@ public class DriveSystem extends Subsystem {
 		//x^(1/x);
 		if(x<0)
 		{
-			return -(Math.pow(-x, 1/-x));
+			return -(Math.pow(-x, 1/(-1.75*x)));
 		}
 		else if(x==0)
 		{							
@@ -76,7 +76,7 @@ public class DriveSystem extends Subsystem {
 		}
 		else
 		{
-			return (Math.pow(x, 1/x));
+			return (Math.pow(x, 1/(1.75*x)));
 		}
 	}
 }
