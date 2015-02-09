@@ -64,7 +64,7 @@ public class OI
 		controlStick = new Joystick(1);
 
 		dropoffBtn = new JoystickButton(controlStick, 1);
-		dropoffBtn.whenPressed(new DropoffStack());
+		dropoffBtn.whenPressed(new PickUpStack());
 		driveStick = new Joystick(0);
 
 		driveForwardBtn = new JoystickButton(driveStick, 1);
@@ -77,7 +77,7 @@ public class OI
 
 		SmartDashboard.putData("Drive Forward", new DriveForward());
 
-		SmartDashboard.putData("Dropoff Stack", new DropoffStack());
+		SmartDashboard.putData("Dropoff Stack", new PickUpStack());
 
 		SmartDashboard.putData("Collector Intake", new CollectorIntake());
 

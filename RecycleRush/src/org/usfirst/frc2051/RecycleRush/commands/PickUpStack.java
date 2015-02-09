@@ -11,17 +11,15 @@
 package org.usfirst.frc2051.RecycleRush.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc2051.RecycleRush.Robot;
-import org.usfirst.frc2051.RecycleRush.subsystems.LifterPID;
 
 /**
  *
  */
-public class DropoffStack extends Command
+public class PickUpStack extends Command
 {
 
-	public DropoffStack()
+	public PickUpStack()
 	{
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
@@ -34,7 +32,6 @@ public class DropoffStack extends Command
 	// Called just before this Command runs the first time
 	protected void initialize()
 	{
-		Robot.lifterPID.setSetpoint(LifterPID.down);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
@@ -45,7 +42,7 @@ public class DropoffStack extends Command
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished()
 	{
-		return Math.abs(Robot.lifterPID.getSetpoint()-Robot.lifterPID.getPosition()) < 0.1;
+		return false;
 	}
 
 	// Called once after isFinished returns true
