@@ -11,6 +11,9 @@
 package org.usfirst.frc2051.RecycleRush.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import java.*;
+import edu.*;
+import org.*;
 import org.usfirst.frc2051.RecycleRush.Robot;
 
 /**
@@ -32,6 +35,7 @@ public class DriveByJoystick extends Command
 	// Called just before this Command runs the first time
 	protected void initialize()
 	{
+		
 	}
 
 	// Called repeatedly when this Command is scheduled to run
