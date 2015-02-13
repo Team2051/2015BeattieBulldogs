@@ -10,6 +10,7 @@
 
 package org.usfirst.frc2051.RecycleRush.subsystems;
 
+import org.usfirst.frc2051.RecycleRush.Robot;
 import org.usfirst.frc2051.RecycleRush.RobotMap;
 import org.usfirst.frc2051.RecycleRush.commands.*;
 
@@ -61,5 +62,10 @@ public class LifterPIDLeft extends PIDSubsystem
 		// Use output to drive your system, like a motor
 		// e.g. yourMotor.set(output);
 		dARTMotorLeft.pidWrite(output);
+	}
+	
+	public void stop()
+	{
+		Robot.lifterPIDLeft.setSetpoint(getPosition());
 	}
 }
