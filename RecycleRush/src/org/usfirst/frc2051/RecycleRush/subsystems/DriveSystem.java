@@ -54,13 +54,33 @@ public class DriveSystem extends Subsystem
 		setDefaultCommand(new DriveByJoystick());
 	}
 
+	/**
+	 * Joystick deadband function that behaves consistently with positive and negative inputs
+	 * Uses the curve f(x) = x ^ (1/x)
+	 * Type this into Google Search to graph it: graph x^(1/x)
+	 * Returns zero for values less than about 0.25, then scales up to return 1 for an input of 1
+	 */
 	private double deadBand(double x)
 	{
-		// X^(1/1.75X)
 		if (x > 0)
-			return (Math.pow(x, 7.0 / (4.0 * x)));
+			return Math.pow(x, 1.0 / x);
 		else if (x < 0)
 			return -deadBand(-x);
+		else
+			return 0;
+	}
+	/**
+	 * Joystick deadband function that behaves consistently with positive and negative inputs
+	 * Uses the curve f(x) = x ^ (4/x)
+	 * Type this into Google Search to graph it: graph x^(4/x)
+	 * Returns zero for values less than about 0.5, then scales up to return 1 for an input of 1
+	 */
+	private double twistDeadBand(double x)
+	{
+		if (x > 0)
+			return Math.pow(x, 4.0 / x);
+		else if (x < 0)
+			return -twistDeadBand(-x);
 		else
 			return 0;
 	}
