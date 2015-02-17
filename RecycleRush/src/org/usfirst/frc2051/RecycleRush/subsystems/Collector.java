@@ -22,8 +22,8 @@ public class Collector extends Subsystem
 {
 	Relay collectorRight = RobotMap.collectorCollectorRight;
 	Relay collectorLeft = RobotMap.collectorCollectorLeft;
-	DigitalInput collectorContactRight = RobotMap.collectorCollectorOpened;
-	DigitalInput collectorContactLeft = RobotMap.collectorCollectorClosed;
+	DigitalInput collectorContactRight = RobotMap.collectorCollectorRightTripped;
+	DigitalInput collectorContactLeft = RobotMap.collectorCollectorLeftTripped;
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.

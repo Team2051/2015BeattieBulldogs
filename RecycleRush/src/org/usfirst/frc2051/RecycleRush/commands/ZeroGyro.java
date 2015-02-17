@@ -38,7 +38,6 @@ public class ZeroGyro extends Command
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
-	// This command never finishes. The toggle button action will kill it when needed.
 	protected boolean isFinished()
 	{
 		return true;

@@ -65,10 +65,10 @@ public class OI
 		driveStick = new Joystick(0);
 		controlStick = new Joystick(1);
 
-		disableGyroBtn = new JoystickButton(driveStick, 7);
+		disableGyroBtn = new JoystickButton(driveStick, 11);
 		disableGyroBtn.toggleWhenPressed(new DisableGyro());
 
-		zeroGyroBtn = new JoystickButton(driveStick, 7);
+		zeroGyroBtn = new JoystickButton(driveStick, 12);
 		zeroGyroBtn.toggleWhenPressed(new ZeroGyro());
 		
 		dropoffBtn = new JoystickButton(controlStick, 1);
@@ -77,7 +77,7 @@ public class OI
 		driveForwardBtn = new JoystickButton(driveStick, 1);
 		driveForwardBtn.whenPressed(new DriveForward());
 		
-		controlLifterBtn = new JoystickButton(controlStick, 3);
+		controlLifterBtn = new JoystickButton(controlStick, 2);
 		controlLifterBtn.toggleWhenPressed(new LifterManual());
 
 		// SmartDashboard Buttons
