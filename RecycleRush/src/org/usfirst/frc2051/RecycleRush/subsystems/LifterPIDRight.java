@@ -45,8 +45,7 @@ public class LifterPIDRight extends PIDSubsystem
 
 	public void initDefaultCommand()
 	{
-		// Set the default command for a subsystem here.
-		// setDefaultCommand(new MySpecialCommand());
+		setDefaultCommand(new LifterEmergencyStop());
 	}
 
 	protected double returnPIDInput()
@@ -67,5 +66,10 @@ public class LifterPIDRight extends PIDSubsystem
 	public void stop()
 	{
 		Robot.lifterPIDRight.setSetpoint(getPosition());
+	}
+	
+	public boolean isGreater()
+	{
+		return Robot.lifterPIDRight.getPosition() > (Robot.lifterPIDLeft.getPosition() - .05);
 	}
 }

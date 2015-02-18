@@ -45,8 +45,7 @@ public class LifterPIDLeft extends PIDSubsystem
 
 	public void initDefaultCommand()
 	{
-		// Set the default command for a subsystem here.
-		// setDefaultCommand(new MySpecialCommand());
+		setDefaultCommand(new LifterEmergencyStop());
 	}
 
 	protected double returnPIDInput()
@@ -64,8 +63,15 @@ public class LifterPIDLeft extends PIDSubsystem
 		dARTMotorLeft.pidWrite(output);
 	}
 	
+	//Stops actuators at current location
 	public void stop()
 	{
 		Robot.lifterPIDLeft.setSetpoint(getPosition());
+	}
+	
+	//Detects if this side is up higher than the other
+	public boolean isGreater()
+	{
+		return Robot.lifterPIDLeft.getPosition() > (Robot.lifterPIDRight.getPosition() - .05);
 	}
 }

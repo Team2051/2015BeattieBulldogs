@@ -57,6 +57,10 @@ public class OI
 	public JoystickButton dropoffBtn;
 	public JoystickButton driveForwardBtn;
 	public JoystickButton controlLifterBtn;
+	public JoystickButton lifterTwoBtn;
+	public JoystickButton lifterThreeBtn;
+	public JoystickButton lifterFourBtn;
+	public JoystickButton lifterContBtn;
 
 	public OI()
 	{
@@ -79,7 +83,18 @@ public class OI
 		
 		controlLifterBtn = new JoystickButton(controlStick, 2);
 		controlLifterBtn.toggleWhenPressed(new LifterManual());
+		
+		lifterTwoBtn = new JoystickButton(controlStick, 6);
+		lifterTwoBtn.whenPressed(new LifterTwo());
+		
+		lifterThreeBtn = new JoystickButton(controlStick, 7);
+		lifterThreeBtn.whenPressed(new LifterThree());
+		
+		lifterFourBtn = new JoystickButton(controlStick, 10);
+		lifterFourBtn.whenPressed(new LifterFour());
 
+		lifterContBtn = new JoystickButton(controlStick, 11);
+		lifterContBtn.whenPressed(new LifterCont());
 		// SmartDashboard Buttons
 		SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
 
