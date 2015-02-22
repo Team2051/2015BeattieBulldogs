@@ -11,9 +11,6 @@
 package org.usfirst.frc2051.RecycleRush.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import java.*;
-import edu.*;
-import org.*;
 import org.usfirst.frc2051.RecycleRush.Robot;
 
 /**

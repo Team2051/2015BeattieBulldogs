@@ -6,6 +6,6 @@ public class AutonomousCommand extends CommandGroup
 {
 	public AutonomousCommand()
 	{
-		addSequential(new DriveForward());
+		addSequential(new DriveForward(.3, 12));
 	}
 }

@@ -77,9 +77,6 @@ public class OI
 		
 		dropoffBtn = new JoystickButton(controlStick, 1);
 		dropoffBtn.whenPressed(new PickUpStack());
-
-		driveForwardBtn = new JoystickButton(driveStick, 1);
-		driveForwardBtn.whenPressed(new DriveForward());
 		
 		controlLifterBtn = new JoystickButton(controlStick, 2);
 		controlLifterBtn.toggleWhenPressed(new LifterManual());
@@ -102,7 +99,7 @@ public class OI
 
 		SmartDashboard.putData("Disable Drive Gyro", new DisableGyro());
 
-		SmartDashboard.putData("Drive Forward", new DriveForward());
+		SmartDashboard.putData("Drive Forward", new DriveForward(.3, 12));
 
 		SmartDashboard.putData("Dropoff Stack", new PickUpStack());
 
@@ -113,9 +110,7 @@ public class OI
 		SmartDashboard.putData("Collector Spin Right", new CollectorSpinRight());
 
 		SmartDashboard.putData("Collector Spin Left", new CollectorSpinLeft());
-		
-		SmartDashboard.putData("DriveForward", new DriveForward());
-		
+				
 		SmartDashboard.putData("Drop Off Stack", new DropoffStack());
 		
 		SmartDashboard.putData("Lifter Manual Control", new LifterManual());

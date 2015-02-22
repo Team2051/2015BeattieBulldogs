@@ -13,7 +13,6 @@ package org.usfirst.frc2051.RecycleRush.subsystems;
 import org.usfirst.frc2051.RecycleRush.Robot;
 import org.usfirst.frc2051.RecycleRush.RobotMap;
 import org.usfirst.frc2051.RecycleRush.commands.*;
-
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -36,14 +35,15 @@ public class DriveSystem extends Subsystem
 
 	DriveGyro driveGyro = Robot.driveGyro;
 
-	double rightStrafeDist;
-	double leftStrafeDist;
+	double initialRightRearEnc;
+	double initialLeftRearEnc;
 	
 	final double wheelRadiusIn = 4;
 	final double wheelCircIn = 2 * Math.PI * wheelRadiusIn;
-	final double tickPrRotationIn = 250 * wheelRadiusIn;
-	final double inchPrTick = wheelCircIn / tickPrRotationIn;
-	final double strafeInchPrTick = inchPrTick / 2.0; // rather wild guess
+	final double tickPrRotation = 250 * 4; // Encoder is k4X 
+	final double inchPrTick = wheelCircIn / tickPrRotation;
+	final double strafeInchPrTick = inchPrTick / 2.0; // Wild guess
+
 	
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
@@ -88,9 +88,9 @@ public class DriveSystem extends Subsystem
 	public void takeJoystickInputs(Joystick driveStick)
 	{
 		// If the gyro is enabled, factor that into driving, else use a value of zero
-		mecanum.mecanumDrive_Cartesian(driveStick.getX(), 
-									   driveStick.getY(),
-							  deadBand(driveStick.getZ()), 
+		mecanum.mecanumDrive_Cartesian(deadBand(driveStick.getX()), 
+									   deadBand(driveStick.getY()),
+									   twistDeadBand(driveStick.getZ()), 
 				driveGyro.isGyroEnabled() ? driveGyro.getAngle() : 0.0);
 
 		SmartDashboard.putNumber("Left Front Enc", leftFrontEnc.getDistance());
@@ -101,13 +101,13 @@ public class DriveSystem extends Subsystem
 
 	public void stop()
 	{
-		mecanum.drive(0, 0);
+		mecanum.stopMotor();
 	}
 
 	// moves it
 	public void moveIt(double speed)
 	{
-		mecanum.mecanumDrive_Cartesian(0, -speed, 0, driveGyro.getAngle());
+		mecanum.mecanumDrive_Cartesian(0, -speed, 0, driveGyro.isGyroEnabled() ? driveGyro.getAngle() : 0.0);
 	}
 
 	/* Gets distance traveled since the last resetDist()
@@ -116,23 +116,48 @@ public class DriveSystem extends Subsystem
 	 */
 	public double getDistFwdBack()
 	{
-		return (rightRearEnc.getDistance() - rightStrafeDist) * inchPrTick;
+		return Math.abs(rightRearEnc.getDistance() - initialRightRearEnc) * inchPrTick;
 	}
 	
+	/*
+	 * Gets distance traveled since the last resetDist()
+	 * when driving left
+	 */
 	public double getDistLeft()
 	{
-		return (leftRearEnc.getDistance() - leftStrafeDist) * strafeInchPrTick;
+		return Math.abs(leftRearEnc.getDistance() - initialLeftRearEnc) * strafeInchPrTick;
 	}
 
+	/*
+	 * Gets distance traveled since the last resetDist()
+	 * when driving right
+	 */
 	public double getDistRight()
 	{
-		return (rightRearEnc.getDistance() - rightStrafeDist) * strafeInchPrTick;
+		return Math.abs(rightRearEnc.getDistance() - initialRightRearEnc) * strafeInchPrTick;
 	}
 	
-	// resets distance
+	// Resets distance
 	public void resetDist()
 	{
-		rightStrafeDist = rightRearEnc.getDistance();
-		leftStrafeDist = leftRearEnc.getDistance();
+		initialRightRearEnc = rightRearEnc.getDistance();
+		initialLeftRearEnc = leftRearEnc.getDistance();
+	}
+	
+	public double autonSpeed(double maxSpeed, double finalDist, double currentDist)
+	{
+		final double rampUpAccel = ((1-0) / 12);
+		final double rampDownAccel = ((0-1) / 6);
+		final double minSpeed = 0.25;
+		
+		double rampUpDist = (maxSpeed - minSpeed) / rampUpAccel;
+		double rampDownDist = (minSpeed - maxSpeed) / rampDownAccel;
+		
+		
+		if(true)
+			return 0;
+		else
+			return 1;
+			
 	}
 }
