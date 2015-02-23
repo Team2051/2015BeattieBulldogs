@@ -37,14 +37,13 @@ public class DriveSystem extends Subsystem
 
 	double initialRightRearEnc;
 	double initialLeftRearEnc;
-	
+
 	final double wheelRadiusIn = 4;
 	final double wheelCircIn = 2 * Math.PI * wheelRadiusIn;
-	final double tickPrRotation = 250 * 4; // Encoder is k4X 
+	final double tickPrRotation = 250 * 4; // Encoder is k4X
 	final double inchPrTick = wheelCircIn / tickPrRotation;
 	final double strafeInchPrTick = inchPrTick / 2.0; // Wild guess
 
-	
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
 
@@ -55,10 +54,10 @@ public class DriveSystem extends Subsystem
 	}
 
 	/**
-	 * Joystick deadband function that behaves consistently with positive and negative inputs
-	 * Uses the curve f(x) = x ^ (1/x)
-	 * Type this into Google Search to graph it: graph x^(1/x)
-	 * Returns zero for values less than about 0.25, then scales up to return 1 for an input of 1
+	 * Joystick deadband function that behaves consistently with positive and
+	 * negative inputs Uses the curve f(x) = x ^ (1/x) Type this into Google
+	 * Search to graph it: graph x^(1/x) Returns zero for values less than about
+	 * 0.25, then scales up to return 1 for an input of 1
 	 */
 	private double deadBand(double x)
 	{
@@ -69,11 +68,12 @@ public class DriveSystem extends Subsystem
 		else
 			return 0;
 	}
+
 	/**
-	 * Joystick deadband function that behaves consistently with positive and negative inputs
-	 * Uses the curve f(x) = x ^ (4/x)
-	 * Type this into Google Search to graph it: graph x^(4/x)
-	 * Returns zero for values less than about 0.5, then scales up to return 1 for an input of 1
+	 * Joystick deadband function that behaves consistently with positive and
+	 * negative inputs Uses the curve f(x) = x ^ (4/x) Type this into Google
+	 * Search to graph it: graph x^(4/x) Returns zero for values less than about
+	 * 0.5, then scales up to return 1 for an input of 1
 	 */
 	private double twistDeadBand(double x)
 	{
@@ -87,11 +87,9 @@ public class DriveSystem extends Subsystem
 
 	public void takeJoystickInputs(Joystick driveStick)
 	{
-		// If the gyro is enabled, factor that into driving, else use a value of zero
-		mecanum.mecanumDrive_Cartesian(deadBand(driveStick.getX()), 
-									   deadBand(driveStick.getY()),
-									   twistDeadBand(driveStick.getZ()), 
-				driveGyro.isGyroEnabled() ? driveGyro.getAngle() : 0.0);
+		// If the gyro is enabled, factor that into driving, else use a value of
+		// zero
+		mecanum.mecanumDrive_Cartesian(deadBand(driveStick.getX()), deadBand(driveStick.getY()), twistDeadBand(driveStick.getZ()), driveGyro.isGyroEnabled() ? driveGyro.getAngle() : 0.0);
 
 		SmartDashboard.putNumber("Left Front Enc", leftFrontEnc.getDistance());
 		SmartDashboard.putNumber("Left Rear Enc", leftRearEnc.getDistance());
@@ -110,18 +108,18 @@ public class DriveSystem extends Subsystem
 		mecanum.mecanumDrive_Cartesian(0, -speed, 0, driveGyro.isGyroEnabled() ? driveGyro.getAngle() : 0.0);
 	}
 
-	/* Gets distance traveled since the last resetDist()
-	 * when driving in the forward or backward direction
-	 * where all wheels are turning in the same direction.
+	/*
+	 * Gets distance traveled since the last resetDist() when driving in the
+	 * forward or backward direction where all wheels are turning in the same
+	 * direction.
 	 */
 	public double getDistFwdBack()
 	{
 		return Math.abs(rightRearEnc.getDistance() - initialRightRearEnc) * inchPrTick;
 	}
-	
+
 	/*
-	 * Gets distance traveled since the last resetDist()
-	 * when driving left
+	 * Gets distance traveled since the last resetDist() when driving left
 	 */
 	public double getDistLeft()
 	{
@@ -129,35 +127,37 @@ public class DriveSystem extends Subsystem
 	}
 
 	/*
-	 * Gets distance traveled since the last resetDist()
-	 * when driving right
+	 * Gets distance traveled since the last resetDist() when driving right
 	 */
 	public double getDistRight()
 	{
 		return Math.abs(rightRearEnc.getDistance() - initialRightRearEnc) * strafeInchPrTick;
 	}
-	
+
 	// Resets distance
 	public void resetDist()
 	{
 		initialRightRearEnc = rightRearEnc.getDistance();
 		initialLeftRearEnc = leftRearEnc.getDistance();
 	}
-	
+
 	public double autonSpeed(double maxSpeed, double finalDist, double currentDist)
 	{
-		final double rampUpAccel = ((1-0) / 12);
-		final double rampDownAccel = ((0-1) / 6);
+		final double rampSlope = ((1 - 0) / 12); // max speed minus min speed over target inches for slope.
 		final double minSpeed = 0.25;
-		
-		double rampUpDist = (maxSpeed - minSpeed) / rampUpAccel;
-		double rampDownDist = (minSpeed - maxSpeed) / rampDownAccel;
-		
-		
-		if(true)
-			return 0;
-		else
-			return 1;
+
+		double rampDist = (maxSpeed - minSpeed) / rampSlope;
+	
+		if(finalDist < rampDist)
+			rampDist = finalDist / 2.0;
 			
+		if (currentDist <= rampDist) 												// if starting moving
+			return (rampSlope * currentDist) + minSpeed; 							// begin acceleration
+		else if (currentDist >= (finalDist - rampDist))								// if finishing moving
+			return -rampSlope * (currentDist - (finalDist - rampDist))  + minSpeed; // begin deceleration
+		else if (currentDist > rampDist && currentDist < (finalDist - rampDist)) 	// if moving
+			return maxSpeed; 														// maintain coasting speed
+		else																		// if error value
+			return 0; 																// stop motors
 	}
 }
