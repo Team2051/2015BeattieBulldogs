@@ -102,13 +102,26 @@ public class DriveSystem extends Subsystem
 		mecanum.stopMotor();
 	}
 
-	// moves it
+	/**
+	 *  moves it
+	 * @param speed to move it
+	 */
 	public void moveIt(double speed)
 	{
 		mecanum.mecanumDrive_Cartesian(0, -speed, 0, driveGyro.isGyroEnabled() ? driveGyro.getAngle() : 0.0);
 	}
 
-	/*
+	public void moveItSideLeft(double speed)
+	{
+		
+	}
+	
+	public void moveItSideRight(double speed)
+	{
+		
+	}
+	
+	/**
 	 * Gets distance traveled since the last resetDist() when driving in the
 	 * forward or backward direction where all wheels are turning in the same
 	 * direction.
