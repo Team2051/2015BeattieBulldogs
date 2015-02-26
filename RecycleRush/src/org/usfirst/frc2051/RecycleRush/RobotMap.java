@@ -101,14 +101,14 @@ public class RobotMap
 		driveSystemLeftRearEnc.setDistancePerPulse(1.0);
 		driveSystemLeftRearEnc.setPIDSourceParameter(PIDSourceParameter.kRate);
 
-		driveSystemMecanum = new RobotDrive(new PIDSpeedController(driveSystemLeftFront, kP, kI, kD, driveSystemLeftFrontEnc), 
-											new PIDSpeedController(driveSystemLeftRear, kP, kI, kD, driveSystemLeftRearEnc), 
-											new PIDSpeedController(driveSystemRightFront, kP, kI, kD, driveSystemRightFrontEnc), 
-											new PIDSpeedController(driveSystemRightRear, kP, kI, kD, driveSystemRightRearEnc));
+//		driveSystemMecanum = new RobotDrive(new PIDSpeedController(driveSystemLeftFront, kP, kI, kD, driveSystemLeftFrontEnc), 
+//											new PIDSpeedController(driveSystemLeftRear, kP, kI, kD, driveSystemLeftRearEnc), 
+//											new PIDSpeedController(driveSystemRightFront, kP, kI, kD, driveSystemRightFrontEnc), 
+//											new PIDSpeedController(driveSystemRightRear, kP, kI, kD, driveSystemRightRearEnc));
 
-		// driveSystemMecanum = new RobotDrive(driveSystemLeftFront,
-		// driveSystemLeftRear, driveSystemRightFront,
-		// driveSystemRightRear);
+		driveSystemMecanum = new RobotDrive(driveSystemLeftFront,
+				driveSystemLeftRear, driveSystemRightFront,
+				driveSystemRightRear);
 
 		driveSystemMecanum.setSafetyEnabled(true);
 		driveSystemMecanum.setExpiration(0.1);
@@ -125,28 +125,28 @@ public class RobotMap
 		//LiveWindow.addSensor("Drive System", "Ultrasonic", driveSystemUltrasonic);
 
 		lifterPIDDARTMotorLeft = new Talon(4);
-		LiveWindow.addActuator("Lifter PID", "DART Motors", (Talon) lifterPIDDARTMotorLeft);
+		LiveWindow.addActuator("Lifter PID", "DART Motors Left", (Talon) lifterPIDDARTMotorLeft);
 
 		lifterPIDDARTMotorRight = new Talon(5);
-		LiveWindow.addActuator("Lifter PID", "DART Motors", (Talon) lifterPIDDARTMotorRight);
+		LiveWindow.addActuator("Lifter PID", "DART Motors RIght", (Talon) lifterPIDDARTMotorRight);
 
 		lifterPIDDARTPositionLeft = new AnalogPotentiometer(1, 1.0, 0.0);
-		LiveWindow.addSensor("Lifter PID", "DART Position", lifterPIDDARTPositionLeft);
+		LiveWindow.addSensor("Lifter PID", "DART Position Left", lifterPIDDARTPositionLeft);
 
 		lifterPIDDARTPositionRight = new AnalogPotentiometer(2, 1.0, 0.0);
-		LiveWindow.addSensor("Lifter PID", "DART Position", lifterPIDDARTPositionRight);
+		LiveWindow.addSensor("Lifter PID", "DART Position Right", lifterPIDDARTPositionRight);
 
 		lifterPIDLifterTopLeft = new DigitalInput(9);
 		LiveWindow.addSensor("Lifter PID", "Lifter At Top Left", lifterPIDLifterTopLeft);
 
-		lifterPIDLifterTopRight = new DigitalInput(10);
-		LiveWindow.addSensor("Lifter PID", "Lifter At Top Left", lifterPIDLifterTopRight);
+		lifterPIDLifterTopRight = new DigitalInput(21);
+		LiveWindow.addSensor("Lifter PID", "Lifter At Top Right", lifterPIDLifterTopRight);
 
 		lifterPIDLifterBottomLeft = new DigitalInput(8);
-		LiveWindow.addSensor("Lifter PID", "Lifter At Top Left", lifterPIDLifterBottomLeft);
+		LiveWindow.addSensor("Lifter PID", "Lifter At Bottom Left", lifterPIDLifterBottomLeft);
 
-		lifterPIDLifterBottomRight = new DigitalInput(11);
-		LiveWindow.addSensor("Lifter PID", "Lifter At Top Left", lifterPIDLifterBottomRight);
+		lifterPIDLifterBottomRight = new DigitalInput(22);
+		LiveWindow.addSensor("Lifter PID", "Lifter At Bottom Right", lifterPIDLifterBottomRight);
 
 		collectorCollectorRight = new Relay(0);
 		LiveWindow.addActuator("Collector", "Collector Right", collectorCollectorRight);
@@ -154,10 +154,10 @@ public class RobotMap
 		collectorCollectorLeft = new Relay(1);
 		LiveWindow.addActuator("Collector", "Collector Left", collectorCollectorLeft);
 
-		collectorCollectorLeftTripped = new DigitalInput(12);
+		collectorCollectorLeftTripped = new DigitalInput(23);
 		LiveWindow.addSensor("Collector", "Collector Opened", collectorCollectorLeftTripped);
 
-		collectorCollectorRightTripped = new DigitalInput(13);
+		collectorCollectorRightTripped = new DigitalInput(24);
 		LiveWindow.addSensor("Collector", "Collector Closed", collectorCollectorRightTripped);
 		
 		collectorCollectorLeftMotor = new Talon(6);
