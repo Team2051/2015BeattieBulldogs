@@ -1,4 +1,4 @@
-package org.usfirst.frc2051.robot.RecycleRush.lib;
+package org.usfirst.frc2051.RecycleRush.lib;
 
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDSource;
