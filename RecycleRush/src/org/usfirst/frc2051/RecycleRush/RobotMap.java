@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.PIDSource.PIDSourceParameter;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
-import org.usfirst.frc2051.robot.RecycleRush.lib.PIDSpeedController;
+import org.usfirst.frc2051.RecycleRush.lib.PIDSpeedController;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
