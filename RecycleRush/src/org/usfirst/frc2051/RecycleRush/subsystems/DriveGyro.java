@@ -23,7 +23,7 @@ public class DriveGyro extends Subsystem
 {
 	Gyro gyro = RobotMap.driveSystemGyro;
 
-	private boolean gyroEnabled = true;
+	private boolean gyroEnabled = false;
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.

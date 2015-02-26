@@ -45,7 +45,7 @@ public class LifterPIDLeft extends PIDSubsystem
 
 	public void initDefaultCommand()
 	{
-		setDefaultCommand(new LifterEmergencyStop());
+		//setDefaultCommand(new LifterEmergencyStop());
 	}
 
 	protected double returnPIDInput()

@@ -121,8 +121,8 @@ public class RobotMap
 		LiveWindow.addSensor("Drive System", "Gyro", driveSystemGyro);
 		driveSystemGyro.setSensitivity(0.007);
 
-		driveSystemUltrasonic = new Ultrasonic(11, 12);
-		LiveWindow.addSensor("Drive System", "Ultrasonic", driveSystemUltrasonic);
+		//driveSystemUltrasonic = new Ultrasonic(11, 12);
+		//LiveWindow.addSensor("Drive System", "Ultrasonic", driveSystemUltrasonic);
 
 		lifterPIDDARTMotorLeft = new Talon(4);
 		LiveWindow.addActuator("Lifter PID", "DART Motors", (Talon) lifterPIDDARTMotorLeft);
@@ -145,13 +145,13 @@ public class RobotMap
 		lifterPIDLifterBottomLeft = new DigitalInput(8);
 		LiveWindow.addSensor("Lifter PID", "Lifter At Top Left", lifterPIDLifterBottomLeft);
 
-		lifterPIDLifterBottomRight = new DigitalInput(1);
+		lifterPIDLifterBottomRight = new DigitalInput(11);
 		LiveWindow.addSensor("Lifter PID", "Lifter At Top Left", lifterPIDLifterBottomRight);
 
-		collectorCollectorRight = new Relay(7);
+		collectorCollectorRight = new Relay(0);
 		LiveWindow.addActuator("Collector", "Collector Right", collectorCollectorRight);
 
-		collectorCollectorLeft = new Relay(8);
+		collectorCollectorLeft = new Relay(1);
 		LiveWindow.addActuator("Collector", "Collector Left", collectorCollectorLeft);
 
 		collectorCollectorLeftTripped = new DigitalInput(12);
