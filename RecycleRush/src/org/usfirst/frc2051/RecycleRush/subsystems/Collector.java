@@ -34,31 +34,31 @@ public class Collector extends Subsystem
 	
 	public void stop()
 	{
-		RobotMap.collectorCollectorLeftMotor.set(0);
-		RobotMap.collectorCollectorRightMotor.set(0);
+		RobotMap.collectorCollectorLeft.set(Relay.Value.kOff);
+		RobotMap.collectorCollectorRight.set(Relay.Value.kOff);
 	}
 
-	public void left(double speed)
+	public void left()
 	{
-		RobotMap.collectorCollectorLeftMotor.set(-speed);
-		RobotMap.collectorCollectorRightMotor.set(-speed);
+		RobotMap.collectorCollectorLeft.set(Relay.Value.kReverse);
+		RobotMap.collectorCollectorRight.set(Relay.Value.kReverse);
 	}
 
-	public void right(double speed)
+	public void right()
 	{
-		RobotMap.collectorCollectorLeftMotor.set(speed);
-		RobotMap.collectorCollectorRightMotor.set(speed);
+		RobotMap.collectorCollectorLeft.set(Relay.Value.kForward);
+		RobotMap.collectorCollectorRight.set(Relay.Value.kForward);
 	}
 	
-	public void in(double speed)
+	public void in()
 	{
-		RobotMap.collectorCollectorLeftMotor.set(speed);
-		RobotMap.collectorCollectorRightMotor.set(-speed);
+		RobotMap.collectorCollectorLeft.set(Relay.Value.kForward);
+		RobotMap.collectorCollectorRight.set(Relay.Value.kReverse);
 	}
 	
-	public void out(double speed)
+	public void out()
 	{
-		RobotMap.collectorCollectorLeftMotor.set(-speed);
-		RobotMap.collectorCollectorRightMotor.set(speed);
+		RobotMap.collectorCollectorLeft.set(Relay.Value.kReverse);
+		RobotMap.collectorCollectorRight.set(Relay.Value.kForward);
 	}
 }
