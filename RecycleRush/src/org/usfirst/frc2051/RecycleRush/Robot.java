@@ -14,8 +14,11 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc2051.RecycleRush.commands.*;
+import org.usfirst.frc2051.RecycleRush.groups.*;
 import org.usfirst.frc2051.RecycleRush.subsystems.*;
 
 /**
@@ -29,6 +32,7 @@ public class Robot extends IterativeRobot
 {
 
 	Command autonomousCommand;
+	SendableChooser autoChooser;
 
 	public static OI oi;
 	public static DriveSystem driveSystem;
@@ -44,7 +48,10 @@ public class Robot extends IterativeRobot
 	 */
 	public void robotInit()
 	{
+		// First step: initialize all the RobotMap sensors and actuators
 		RobotMap.init();
+		
+		// Create subsystems
 		driveGyro = new DriveGyro();
 		driveSystem = new DriveSystem();
 		lifterPIDLeft = new LifterPIDLeft();
@@ -58,8 +65,12 @@ public class Robot extends IterativeRobot
 		// pointers. Bad news. Don't move it.
 		oi = new OI();
 
-		// instantiate the command used for the autonomous period
-		autonomousCommand = new AutonomousCommand();
+		// Create SmartDashboard menu to select the autonomous period command
+		autoChooser = new SendableChooser();
+		autoChooser.addDefault("Do Nothing" , new DoNothing());
+		autoChooser.addObject("Drive forward", new DriveForward(0.5, 24));
+		autoChooser.addObject("Dance", new Dance());
+		SmartDashboard.putData("Auto Chooser", autoChooser);
 	}
 
 	/**
@@ -79,6 +90,7 @@ public class Robot extends IterativeRobot
 	public void autonomousInit()
 	{
 		// schedule the autonomous command (example)
+		autonomousCommand = (Command) autoChooser.getSelected();
 		if (autonomousCommand != null)
 			autonomousCommand.start();
 	}
