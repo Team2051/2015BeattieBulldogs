@@ -12,8 +12,7 @@ public class PIDSpeedController implements SpeedController
 	double Ki;
 	double Kd;
 
-	public PIDSpeedController(SpeedController controller, double Kp, double Ki,
-			double Kd, PIDSource source)
+	public PIDSpeedController(SpeedController controller, double Kp, double Ki, double Kd, PIDSource source)
 	{
 		this.Kp = Kp;
 		this.Ki = Ki;

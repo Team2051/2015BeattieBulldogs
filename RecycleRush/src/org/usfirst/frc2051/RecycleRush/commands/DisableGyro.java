@@ -4,11 +4,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2051.RecycleRush.Robot;
 
 /**
- * This command enables or disables the gyroscope
- * It's intended to be on a toggle button (in IO.java)
- * The first press will run this command, putting the gyro into disabled state
- * The second press will kill this command, re-enabling the gyro
- * In between time, the command runs continuously but does nothing
+ * This command enables or disables the gyroscope It's intended to be on a
+ * toggle button (in IO.java) The first press will run this command, putting the
+ * gyro into disabled state The second press will kill this command, re-enabling
+ * the gyro In between time, the command runs continuously but does nothing
  */
 public class DisableGyro extends Command
 {
@@ -33,10 +32,10 @@ public class DisableGyro extends Command
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished()
 	{
-		// This command never finishes. The toggle button action will kill it when needed.
+		// This command never finishes. The toggle button action will kill it
+		// when needed.
 		return false;
 	}
-	
 
 	// Called once after isFinished returns true
 	protected void end()

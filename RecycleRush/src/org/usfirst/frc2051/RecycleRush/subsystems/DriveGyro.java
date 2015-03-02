@@ -6,8 +6,8 @@ import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- * Subsystem for the drive system gyroscope sensor
- * If enabled, provides field-relative driving
+ * Subsystem for the drive system gyroscope sensor If enabled, provides
+ * field-relative driving
  */
 public class DriveGyro extends Subsystem
 {
@@ -22,7 +22,7 @@ public class DriveGyro extends Subsystem
 	public void initDefaultCommand()
 	{
 		// Set the default command for a subsystem here.
-		//setDefaultCommand(new YourCommand());
+		// setDefaultCommand(new YourCommand());
 		// No default command for this subsystem!
 	}
 
@@ -35,7 +35,7 @@ public class DriveGyro extends Subsystem
 	{
 		gyroEnabled = false;
 	}
-	
+
 	public boolean isGyroEnabled()
 	{
 		return gyroEnabled;
@@ -45,7 +45,7 @@ public class DriveGyro extends Subsystem
 	{
 		RobotMap.driveSystemGyro.reset();
 	}
-	
+
 	public double getAngle()
 	{
 		return RobotMap.driveSystemGyro.getAngle();

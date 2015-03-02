@@ -5,16 +5,18 @@ import org.usfirst.frc2051.RecycleRush.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class LifterThree extends Command {
+public class LifterThree extends Command
+{
 
-	public LifterThree() {
+	public LifterThree()
+	{
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.lifterPIDLeft);
 		requires(Robot.lifterPIDRight);
 	}
 
 	// Called just before this Command runs the first time
-	protected void initialize() 
+	protected void initialize()
 	{
 		Robot.lifterPIDLeft.enable();
 		Robot.lifterPIDRight.enable();
@@ -23,20 +25,19 @@ public class LifterThree extends Command {
 	}
 
 	// Called repeatedly when this Command is scheduled to run
-	protected void execute() {
+	protected void execute()
+	{
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
-	protected boolean isFinished() {
+	protected boolean isFinished()
+	{
 		// TODO Add safety logic using top and bottom limit switches
-		return Robot.lifterPIDLeft.atLimit()
-				|| Robot.lifterPIDRight.atLimit()
-				|| (Robot.lifterPIDLeft.onTarget() && 
-					Robot.lifterPIDRight.onTarget());
+		return Robot.lifterPIDLeft.atLimit() || Robot.lifterPIDRight.atLimit() || (Robot.lifterPIDLeft.onTarget() && Robot.lifterPIDRight.onTarget());
 	}
 
 	// Called once after isFinished returns true
-	protected void end() 
+	protected void end()
 	{
 		Robot.lifterPIDLeft.disable();
 		Robot.lifterPIDRight.disable();
@@ -44,7 +45,8 @@ public class LifterThree extends Command {
 
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
-	protected void interrupted() {
+	protected void interrupted()
+	{
 		end();
 	}
 

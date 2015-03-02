@@ -104,8 +104,10 @@ public class DriveSystem extends Subsystem
 	}
 
 	/**
-	 *  moves it
-	 * @param speed to move it
+	 * moves it
+	 * 
+	 * @param speed
+	 *            to move it
 	 */
 	public void moveIt(double speed)
 	{
@@ -114,14 +116,14 @@ public class DriveSystem extends Subsystem
 
 	public void moveItSideLeft(double speed)
 	{
-		
+
 	}
-	
+
 	public void moveItSideRight(double speed)
 	{
-		
+
 	}
-	
+
 	/**
 	 * Gets distance traveled since the last resetDist() when driving in the
 	 * forward or backward direction where all wheels are turning in the same
@@ -157,21 +159,26 @@ public class DriveSystem extends Subsystem
 
 	public double autonSpeed(double maxSpeed, double finalDist, double currentDist)
 	{
-		final double rampSlope = ((1 - 0) / 12); // max speed minus min speed over target inches for slope.
+		final double rampSlope = ((1 - 0) / 12); // max speed minus min speed
+													// over target inches for
+													// slope.
 		final double minSpeed = 0.25;
 
 		double rampDist = (maxSpeed - minSpeed) / rampSlope;
-	
-		if(finalDist < rampDist)
+
+		if (finalDist < rampDist)
 			rampDist = finalDist / 2.0;
-			
-		if (currentDist <= rampDist) 												// if starting moving
-			return (rampSlope * currentDist) + minSpeed; 							// begin acceleration
-		else if (currentDist >= (finalDist - rampDist))								// if finishing moving
-			return -rampSlope * (currentDist - (finalDist - rampDist))  + minSpeed; // begin deceleration
-		else if (currentDist > rampDist && currentDist < (finalDist - rampDist)) 	// if moving
-			return maxSpeed; 														// maintain coasting speed
-		else																		// if error value
-			return 0; 																// stop motors
+
+		if (currentDist <= rampDist) // if starting moving
+			return (rampSlope * currentDist) + minSpeed; // begin acceleration
+		else if (currentDist >= (finalDist - rampDist)) // if finishing moving
+			return -rampSlope * (currentDist - (finalDist - rampDist)) + minSpeed; // begin
+																					// deceleration
+		else if (currentDist > rampDist && currentDist < (finalDist - rampDist)) // if
+																					// moving
+			return maxSpeed; // maintain coasting speed
+		else
+			// if error value
+			return 0; // stop motors
 	}
 }

@@ -22,17 +22,19 @@ public class DriveForward extends Command
 	private double speed;
 	private double distance;
 
-	
 	/**
 	 * Drive the robot forward
-	 * @param speed from 0 to 1
-	 * @param distance in inches
+	 * 
+	 * @param speed
+	 *            from 0 to 1
+	 * @param distance
+	 *            in inches
 	 */
 	public DriveForward(double speed, double distance)
 	{
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.driveSystem);
-		
+
 		this.speed = speed;
 		this.distance = distance;
 	}
@@ -52,11 +54,10 @@ public class DriveForward extends Command
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished()
 	{
-		//-Units: Inches
-		//-Numbers: final unit conversion = Inches
+		// -Units: Inches
+		// -Numbers: final unit conversion = Inches
 		return Robot.driveSystem.getDistFwdBack() > distance;
 	}
-	
 
 	// Called once after isFinished returns true
 	protected void end()

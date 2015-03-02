@@ -15,8 +15,8 @@ public class Camera extends Subsystem
 	public Camera(String name)
 	{
 		server = CameraServer.getInstance();
-        server.setQuality(69);//tee hee
-        server.startAutomaticCapture(name);
+		server.setQuality(69);// tee hee
+		server.startAutomaticCapture(name);
 	}
 
 	protected void initDefaultCommand()

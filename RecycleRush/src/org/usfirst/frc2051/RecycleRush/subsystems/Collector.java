@@ -31,7 +31,7 @@ public class Collector extends Subsystem
 		// Set the default command for a subsystem here.
 		// setDefaultCommand(new MySpecialCommand());
 	}
-	
+
 	public void stop()
 	{
 		RobotMap.collectorCollectorLeft.set(Relay.Value.kOff);
@@ -49,13 +49,13 @@ public class Collector extends Subsystem
 		RobotMap.collectorCollectorLeft.set(Relay.Value.kForward);
 		RobotMap.collectorCollectorRight.set(Relay.Value.kForward);
 	}
-	
+
 	public void in()
 	{
 		RobotMap.collectorCollectorLeft.set(Relay.Value.kForward);
 		RobotMap.collectorCollectorRight.set(Relay.Value.kReverse);
 	}
-	
+
 	public void out()
 	{
 		RobotMap.collectorCollectorLeft.set(Relay.Value.kReverse);

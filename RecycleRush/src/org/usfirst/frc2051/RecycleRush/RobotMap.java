@@ -86,14 +86,17 @@ public class RobotMap
 		driveSystemLeftRearEnc.setDistancePerPulse(1.0);
 		driveSystemLeftRearEnc.setPIDSourceParameter(PIDSourceParameter.kRate);
 
-//		driveSystemMecanum = new RobotDrive(new PIDSpeedController(driveSystemLeftFront, kP, kI, kD, driveSystemLeftFrontEnc), 
-//											new PIDSpeedController(driveSystemLeftRear, kP, kI, kD, driveSystemLeftRearEnc), 
-//											new PIDSpeedController(driveSystemRightFront, kP, kI, kD, driveSystemRightFrontEnc), 
-//											new PIDSpeedController(driveSystemRightRear, kP, kI, kD, driveSystemRightRearEnc));
+		// driveSystemMecanum = new RobotDrive(new
+		// PIDSpeedController(driveSystemLeftFront, kP, kI, kD,
+		// driveSystemLeftFrontEnc),
+		// new PIDSpeedController(driveSystemLeftRear, kP, kI, kD,
+		// driveSystemLeftRearEnc),
+		// new PIDSpeedController(driveSystemRightFront, kP, kI, kD,
+		// driveSystemRightFrontEnc),
+		// new PIDSpeedController(driveSystemRightRear, kP, kI, kD,
+		// driveSystemRightRearEnc));
 
-		driveSystemMecanum = new RobotDrive(driveSystemLeftFront,
-				driveSystemLeftRear, driveSystemRightFront,
-				driveSystemRightRear);
+		driveSystemMecanum = new RobotDrive(driveSystemLeftFront, driveSystemLeftRear, driveSystemRightFront, driveSystemRightRear);
 
 		driveSystemMecanum.setSafetyEnabled(true);
 		driveSystemMecanum.setExpiration(0.1);
@@ -106,8 +109,9 @@ public class RobotMap
 		LiveWindow.addSensor("Drive System", "Gyro", driveSystemGyro);
 		driveSystemGyro.setSensitivity(0.007);
 
-		//driveSystemUltrasonic = new Ultrasonic(11, 12);
-		//LiveWindow.addSensor("Drive System", "Ultrasonic", driveSystemUltrasonic);
+		// driveSystemUltrasonic = new Ultrasonic(11, 12);
+		// LiveWindow.addSensor("Drive System", "Ultrasonic",
+		// driveSystemUltrasonic);
 
 		lifterPIDDARTMotorLeft = new Talon(4);
 		LiveWindow.addActuator("Lifter PID", "DART Motors Left", (Talon) lifterPIDDARTMotorLeft);
@@ -146,7 +150,7 @@ public class RobotMap
 
 		collectorCollectorRightTripped = new DigitalInput(24);
 		LiveWindow.addSensor("Collector", "Collector Closed", collectorCollectorRightTripped);
-		
+
 		spare = new Talon(6);
 		LiveWindow.addActuator("Spare", "Spare Talon 6", (Talon) spare);
 	}

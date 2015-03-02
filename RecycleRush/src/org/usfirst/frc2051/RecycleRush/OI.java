@@ -65,29 +65,31 @@ public class OI
 
 		zeroGyroBtn = new JoystickButton(driveStick, 12);
 		zeroGyroBtn.whenPressed(new ZeroGyro());
-		
+
 		dropoffBtn = new JoystickButton(controlStick, 1);
 		dropoffBtn.whenPressed(new LifterOne());
-		
+
 		controlLifterBtn = new JoystickButton(controlStick, 2);
 		controlLifterBtn.toggleWhenPressed(new LifterManual());
-		
+
 		lifterTwoBtn = new JoystickButton(controlStick, 6);
 		lifterTwoBtn.whenPressed(new LifterTwo());
-		
+
 		lifterThreeBtn = new JoystickButton(controlStick, 7);
 		lifterThreeBtn.whenPressed(new LifterThree());
-		
+
 		lifterFourBtn = new JoystickButton(controlStick, 10);
 		lifterFourBtn.whenPressed(new LifterFour());
 
 		lifterContainerBtn = new JoystickButton(controlStick, 11);
 		lifterContainerBtn.whenPressed(new LifterContainer());
-		
-		//TODO Need to finalize the button layout (add collector commands, etc.)
-		
+
+		// TODO Need to finalize the button layout (add collector commands,
+		// etc.)
+
 		// SmartDashboard Buttons for testing individual commands
-		// This should match the list of classes in the *.commands and *.groups packages
+		// This should match the list of classes in the *.commands and *.groups
+		// packages
 		SmartDashboard.putData("Collector Intake", new CollectorIntake());
 		SmartDashboard.putData("Collector Pushout", new CollectorPushout());
 		SmartDashboard.putData("Collector Spin Right", new CollectorSpinRight());

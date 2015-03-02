@@ -50,7 +50,7 @@ public class Robot extends IterativeRobot
 	{
 		// First step: initialize all the RobotMap sensors and actuators
 		RobotMap.init();
-		
+
 		// Create subsystems
 		driveGyro = new DriveGyro();
 		driveSystem = new DriveSystem();
@@ -67,7 +67,7 @@ public class Robot extends IterativeRobot
 
 		// Create SmartDashboard menu to select the autonomous period command
 		autoChooser = new SendableChooser();
-		autoChooser.addDefault("Do Nothing" , new DoNothing());
+		autoChooser.addDefault("Do Nothing", new DoNothing());
 		autoChooser.addObject("Drive forward", new DriveForward(0.5, 24));
 		autoChooser.addObject("Dance", new Dance());
 		SmartDashboard.putData("Auto Chooser", autoChooser);
@@ -79,7 +79,7 @@ public class Robot extends IterativeRobot
 	 */
 	public void disabledInit()
 	{
-	
+
 	}
 
 	public void disabledPeriodic()

@@ -4,8 +4,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2051.RecycleRush.Robot;
 
 /**
- * This command resets the gyro angle to zero and enables it for driving
- * If invoked, it "requires" the driveGyro subsystem so will kill off the DisableGyro command
+ * This command resets the gyro angle to zero and enables it for driving If
+ * invoked, it "requires" the driveGyro subsystem so will kill off the
+ * DisableGyro command
  */
 public class ZeroGyro extends Command
 {
@@ -32,7 +33,6 @@ public class ZeroGyro extends Command
 	{
 		return true;
 	}
-	
 
 	// Called once after isFinished returns true
 	protected void end()

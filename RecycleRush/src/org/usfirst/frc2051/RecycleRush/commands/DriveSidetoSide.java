@@ -23,22 +23,25 @@ public class DriveSidetoSide extends Command
 	private double distance;
 	private int side;
 
-	
 	/**
 	 * Drive the robot side to side
-	 * @param left: 0 right: 1
-	 * @param speed from 0 to 1
-	 * @param distance in inches
+	 * 
+	 * @param left
+	 *            : 0 right: 1
+	 * @param speed
+	 *            from 0 to 1
+	 * @param distance
+	 *            in inches
 	 */
 	public DriveSidetoSide(double speed, double distance, int side)
 	{
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.driveSystem);
-		
+
 		this.speed = speed;
 		this.distance = distance;
 		this.side = side;
-		
+
 	}
 
 	// Called just before this Command runs the first time
@@ -56,11 +59,10 @@ public class DriveSidetoSide extends Command
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished()
 	{
-		//-Units: Inches
-		//-Numbers: final unit conversion = Inches
+		// -Units: Inches
+		// -Numbers: final unit conversion = Inches
 		return Robot.driveSystem.getDistFwdBack() > distance;
 	}
-	
 
 	// Called once after isFinished returns true
 	protected void end()
