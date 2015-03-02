@@ -10,7 +10,9 @@
 
 package org.usfirst.frc2051.RecycleRush.commands;
 
+import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.usfirst.frc2051.RecycleRush.Robot;
 
 /**
@@ -18,22 +20,26 @@ import org.usfirst.frc2051.RecycleRush.Robot;
  */
 public class DriveSidetoSide extends Command
 {
+	public enum Direction
+	{
+		kLEFT, kRIGHT
+	}
 
 	private double speed;
 	private double distance;
-	private int side;
+	private Direction side;
 
 	/**
 	 * Drive the robot side to side
 	 * 
-	 * @param left
-	 *            : 0 right: 1
+	 * @param side
+	 *            left : 0 right: 1
 	 * @param speed
 	 *            from 0 to 1
 	 * @param distance
 	 *            in inches
 	 */
-	public DriveSidetoSide(double speed, double distance, int side)
+	public DriveSidetoSide(double speed, double distance, Direction side)
 	{
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.driveSystem);
@@ -47,13 +53,16 @@ public class DriveSidetoSide extends Command
 	// Called just before this Command runs the first time
 	protected void initialize()
 	{
-		Robot.driveSystem.resetDist();// resets dist
+		Robot.driveSystem.resetDist();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute()
 	{
-		Robot.driveSystem.moveIt(speed);
+		if (side == Direction.kLEFT)
+			Robot.driveSystem.moveItSideLeft(speed);
+		else
+			Robot.driveSystem.moveItSideRight(speed);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -61,7 +70,7 @@ public class DriveSidetoSide extends Command
 	{
 		// -Units: Inches
 		// -Numbers: final unit conversion = Inches
-		return Robot.driveSystem.getDistFwdBack() > distance;
+		return (side == Direction.kLEFT ? Robot.driveSystem.getDistLeft() : Robot.driveSystem.getDistRight()) >= distance;
 	}
 
 	// Called once after isFinished returns true

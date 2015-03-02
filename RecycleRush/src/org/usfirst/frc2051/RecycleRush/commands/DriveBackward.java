@@ -26,7 +26,7 @@ public class DriveBackward extends Command
 	 * Drive the robot backward
 	 * 
 	 * @param speed
-	 *            from -1 to 0
+	 *            from 0 to 1
 	 * @param distance
 	 *            in inches
 	 */
@@ -35,7 +35,7 @@ public class DriveBackward extends Command
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.driveSystem);
 
-		this.speed = speed;
+		this.speed = -speed;
 		this.distance = distance;
 	}
 

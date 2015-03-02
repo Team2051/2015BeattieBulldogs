@@ -1,6 +1,7 @@
 package org.usfirst.frc2051.RecycleRush;
 
 import org.usfirst.frc2051.RecycleRush.commands.*;
+import org.usfirst.frc2051.RecycleRush.commands.DriveSidetoSide.Direction;
 import org.usfirst.frc2051.RecycleRush.groups.*;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -99,15 +100,15 @@ public class OI
 		SmartDashboard.putData("Drive Backward", new DriveBackward(.3, 12));
 		SmartDashboard.putData("Drive By Joystick", new DriveByJoystick());
 		SmartDashboard.putData("Drive Forward", new DriveForward(.3, 12));
-		SmartDashboard.putData("Drive Side to Side (left)", new DriveSidetoSide(.3, 12, 0));
-		SmartDashboard.putData("Drive Side to Side (right)", new DriveSidetoSide(.3, 12, 1));
-		SmartDashboard.putData("Dropoff Stack", new LifterZero());
+		SmartDashboard.putData("Drive Side to Side (left)", new DriveSidetoSide(.3, 12, Direction.kLEFT));
+		SmartDashboard.putData("Drive Side to Side (right)", new DriveSidetoSide(.3, 12, Direction.kRIGHT));
 		SmartDashboard.putData("Lifter Cont", new LifterContainer());
 		SmartDashboard.putData("Lifter Four", new LifterFour());
 		SmartDashboard.putData("Lifter Manual Control", new LifterManual());
+		SmartDashboard.putData("Lifter One", new LifterOne());
 		SmartDashboard.putData("Lifter Three", new LifterThree());
 		SmartDashboard.putData("Lifter Two", new LifterTwo());
-		SmartDashboard.putData("Pickup Stack", new LifterOne());
+		SmartDashboard.putData("Lifter Zero", new LifterZero());
 		SmartDashboard.putData("Zero Drive Gyro", new ZeroGyro());
 		SmartDashboard.putData("Dance", new Dance());
 	}
