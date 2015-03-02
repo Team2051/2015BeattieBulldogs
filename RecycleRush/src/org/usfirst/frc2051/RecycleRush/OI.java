@@ -69,11 +69,12 @@ public class OI
 		driveStick = new Joystick(0);
 		controlStick = new Joystick(1);
 
+		// DisableGyro is run as a toggle, unlike most commands
 		disableGyroBtn = new JoystickButton(driveStick, 11);
 		disableGyroBtn.toggleWhenPressed(new DisableGyro());
 
 		zeroGyroBtn = new JoystickButton(driveStick, 12);
-		zeroGyroBtn.toggleWhenPressed(new ZeroGyro());
+		zeroGyroBtn.whenPressed(new ZeroGyro());
 		
 		dropoffBtn = new JoystickButton(controlStick, 1);
 		dropoffBtn.whenPressed(new PickUpStack());
