@@ -15,6 +15,8 @@ public class LifterContainer extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
+		Robot.lifterPIDLeft.enable();
+		Robot.lifterPIDRight.enable();
 		Robot.lifterPIDLeft.setSetpoint(RobotMap.LIFTER_CONTAINER);
 		Robot.lifterPIDRight.setSetpoint(RobotMap.LIFTER_CONTAINER);
 	}
@@ -25,13 +27,16 @@ public class LifterContainer extends Command {
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		// TODO Add safety logic using top and bottom limit switches
-		return Robot.lifterPIDLeft.onTarget()
-				&& Robot.lifterPIDRight.onTarget();
+		return Robot.lifterPIDLeft.atLimit()
+				|| Robot.lifterPIDRight.atLimit()
+				|| (Robot.lifterPIDLeft.onTarget() && 
+					Robot.lifterPIDRight.onTarget());
 	}
 
 	// Called once after isFinished returns true
 	protected void end() {
+		Robot.lifterPIDLeft.disable();
+		Robot.lifterPIDRight.disable();
 	}
 
 	// Called when another command which requires one or more of the same
@@ -39,5 +44,4 @@ public class LifterContainer extends Command {
 	protected void interrupted() {
 		end();
 	}
-
 }

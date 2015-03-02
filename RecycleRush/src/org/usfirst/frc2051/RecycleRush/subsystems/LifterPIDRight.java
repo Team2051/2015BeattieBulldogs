@@ -1,6 +1,5 @@
 package org.usfirst.frc2051.RecycleRush.subsystems;
 
-import org.usfirst.frc2051.RecycleRush.Robot;
 import org.usfirst.frc2051.RecycleRush.RobotMap;
 
 import edu.wpi.first.wpilibj.*;
@@ -8,7 +7,7 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
- *
+ * PID controller for the right DART actuator
  */
 public class LifterPIDRight extends PIDSubsystem {
 	SpeedController dARTMotorRight = RobotMap.lifterPIDDARTMotorRight;
@@ -19,20 +18,15 @@ public class LifterPIDRight extends PIDSubsystem {
 	// Initialize your subsystem here
 	public LifterPIDRight() {
 		super("LifterPIDRight", 1.0, 0.0, 0.0);
-		setAbsoluteTolerance(0.2);
+		setAbsoluteTolerance(0.05);
 		setInputRange(0.0 /* min */, 1.0 /* max */);
 		getPIDController().setContinuous(false);
 		LiveWindow.addActuator("Lifter PID Right", "PIDSubsystem Controller",
 				getPIDController());
-		// Use these to get going:
-		// setSetpoint() - Sets where the PID controller should move the system
-		// to
-		// enable() - Enables the PID controller.
-		enable();
 	}
 
 	public void initDefaultCommand() {
-		// setDefaultCommand(new LifterEmergencyStop());
+		// setDefaultCommand(new Command());
 	}
 
 	protected double returnPIDInput() {
@@ -48,12 +42,10 @@ public class LifterPIDRight extends PIDSubsystem {
 		dARTMotorRight.pidWrite(output);
 	}
 
-	public void stop() {
-		Robot.lifterPIDRight.setSetpoint(getPosition());
-	}
-
-	public boolean isGreater() {
-		return Robot.lifterPIDRight.getPosition() > (Robot.lifterPIDLeft
-				.getPosition() - .05);
+	// Is the actuator at the very top or bottom of allowed travel?
+	// Digital inputs return False when the limit switch is pressed
+	public boolean atLimit() {
+		return (lifterTopRight.get() == false)
+				|| (lifterBottomRight.get() == false);
 	}
 }
