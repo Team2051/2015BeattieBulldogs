@@ -5,9 +5,9 @@ import org.usfirst.frc2051.RecycleRush.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class LifterFour extends Command {
+public class LifterContainer extends Command {
 
-	public LifterFour() {
+	public LifterContainer() {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.lifterPIDLeft);
 		requires(Robot.lifterPIDRight);
@@ -15,8 +15,8 @@ public class LifterFour extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		Robot.lifterPIDLeft.setSetpoint(RobotMap.LIFTER_FOUR);
-		Robot.lifterPIDRight.setSetpoint(RobotMap.LIFTER_FOUR);
+		Robot.lifterPIDLeft.setSetpoint(RobotMap.LIFTER_CONTAINER);
+		Robot.lifterPIDRight.setSetpoint(RobotMap.LIFTER_CONTAINER);
 	}
 
 	// Called repeatedly when this Command is scheduled to run

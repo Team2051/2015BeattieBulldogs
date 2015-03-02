@@ -5,37 +5,35 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2051.RecycleRush.Robot;
 import org.usfirst.frc2051.RecycleRush.RobotMap;
 
-public class LifterManual extends Command
-{
+public class LifterManual extends Command {
 
-	public LifterManual()
-	{
+	public LifterManual() {
+		// Use requires() here to declare subsystem dependencies
+		requires(Robot.lifterPIDLeft);
 		requires(Robot.lifterPIDRight);
 	}
 
 	// Called just before this Command runs the first time
-	protected void initialize()
-	{
+	protected void initialize() {
 		Robot.lifterPIDLeft.disable();
 		Robot.lifterPIDRight.disable();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
-	protected void execute()
-	{
+	protected void execute() {
 		RobotMap.lifterPIDDARTMotorLeft.set(Robot.oi.controlStick.getY());
 		RobotMap.lifterPIDDARTMotorRight.set(Robot.oi.controlStick.getY());
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
-	protected boolean isFinished()
-	{
+	// This command never finishes. The toggle button action will kill it when
+	// needed.
+	protected boolean isFinished() {
 		return false;
 	}
 
 	// Called once after isFinished returns true
-	protected void end()
-	{
+	protected void end() {
 		RobotMap.lifterPIDDARTMotorLeft.set(0);
 		RobotMap.lifterPIDDARTMotorRight.set(0);
 		Robot.lifterPIDLeft.enable();
@@ -44,8 +42,7 @@ public class LifterManual extends Command
 
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
-	protected void interrupted()
-	{
+	protected void interrupted() {
 		end();
 	}
 }

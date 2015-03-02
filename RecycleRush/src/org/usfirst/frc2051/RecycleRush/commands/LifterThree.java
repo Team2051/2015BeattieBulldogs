@@ -5,48 +5,39 @@ import org.usfirst.frc2051.RecycleRush.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class LifterThree extends Command
-{
+public class LifterThree extends Command {
 
-	public LifterThree()
-	{
+	public LifterThree() {
+		// Use requires() here to declare subsystem dependencies
 		requires(Robot.lifterPIDLeft);
 		requires(Robot.lifterPIDRight);
 	}
 
-	@Override
-	protected void initialize()
-	{
+	// Called just before this Command runs the first time
+	protected void initialize() {
 		Robot.lifterPIDLeft.setSetpoint(RobotMap.LIFTER_THREE);
-		Robot.lifterPIDRight.setSetpoint(RobotMap.LIFTER_THREE);		
+		Robot.lifterPIDRight.setSetpoint(RobotMap.LIFTER_THREE);
 	}
 
-	@Override
-	protected void execute()
-	{
-		// TODO Auto-generated method stub
-		
+	// Called repeatedly when this Command is scheduled to run
+	protected void execute() {
 	}
 
-	@Override
-	protected boolean isFinished()
-	{
-		return ((Math.abs(Robot.lifterPIDLeft.getSetpoint()-Robot.lifterPIDLeft.getPosition()) < 0.1) &&
-				(Math.abs(Robot.lifterPIDRight.getSetpoint()-Robot.lifterPIDRight.getPosition()) < 0.1));
+	// Make this return true when this Command no longer needs to run execute()
+	protected boolean isFinished() {
+		// TODO Add safety logic using top and bottom limit switches
+		return Robot.lifterPIDLeft.onTarget()
+				&& Robot.lifterPIDRight.onTarget();
 	}
 
-	@Override
-	protected void end()
-	{
-		// TODO Auto-generated method stub
-		
+	// Called once after isFinished returns true
+	protected void end() {
 	}
 
-	@Override
-	protected void interrupted()
-	{
-		// TODO Auto-generated method stub
-		
+	// Called when another command which requires one or more of the same
+	// subsystems is scheduled to run
+	protected void interrupted() {
+		end();
 	}
 
 }
