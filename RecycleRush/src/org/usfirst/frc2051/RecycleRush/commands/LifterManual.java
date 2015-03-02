@@ -15,14 +15,21 @@ public class LifterManual extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		Robot.lifterPIDLeft.disable();
-		Robot.lifterPIDRight.disable();
+
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		RobotMap.lifterPIDDARTMotorLeft.set(Robot.oi.controlStick.getY());
-		RobotMap.lifterPIDDARTMotorRight.set(Robot.oi.controlStick.getY());
+		if(Robot.lifterPIDLeft.atLimit() || Robot.lifterPIDRight.atLimit())	
+		{
+			RobotMap.lifterPIDDARTMotorLeft.set(0);
+			RobotMap.lifterPIDDARTMotorRight.set(0);
+		}
+		else
+		{
+			RobotMap.lifterPIDDARTMotorLeft.set(Robot.oi.controlStick.getY());
+			RobotMap.lifterPIDDARTMotorRight.set(Robot.oi.controlStick.getY());
+		}
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -36,9 +43,7 @@ public class LifterManual extends Command {
 	protected void end() {
 		RobotMap.lifterPIDDARTMotorLeft.set(0);
 		RobotMap.lifterPIDDARTMotorRight.set(0);
-		Robot.lifterPIDLeft.enable();
-		Robot.lifterPIDRight.enable();
-	}
+}
 
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run

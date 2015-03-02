@@ -67,7 +67,7 @@ public class OI
 		zeroGyroBtn.whenPressed(new ZeroGyro());
 		
 		dropoffBtn = new JoystickButton(controlStick, 1);
-		dropoffBtn.whenPressed(new PickUpStack());
+		dropoffBtn.whenPressed(new LifterOne());
 		
 		controlLifterBtn = new JoystickButton(controlStick, 2);
 		controlLifterBtn.toggleWhenPressed(new LifterManual());
@@ -99,13 +99,13 @@ public class OI
 		SmartDashboard.putData("Drive Forward", new DriveForward(.3, 12));
 		SmartDashboard.putData("Drive Side to Side (left)", new DriveSidetoSide(.3, 12, 0));
 		SmartDashboard.putData("Drive Side to Side (right)", new DriveSidetoSide(.3, 12, 1));
-		SmartDashboard.putData("Dropoff Stack", new DropoffStack());
+		SmartDashboard.putData("Dropoff Stack", new LifterZero());
 		SmartDashboard.putData("Lifter Cont", new LifterContainer());
 		SmartDashboard.putData("Lifter Four", new LifterFour());
 		SmartDashboard.putData("Lifter Manual Control", new LifterManual());
 		SmartDashboard.putData("Lifter Three", new LifterThree());
 		SmartDashboard.putData("Lifter Two", new LifterTwo());
-		SmartDashboard.putData("Pickup Stack", new PickUpStack());
+		SmartDashboard.putData("Pickup Stack", new LifterOne());
 		SmartDashboard.putData("Zero Drive Gyro", new ZeroGyro());
 		SmartDashboard.putData("Dance", new Dance());
 	}

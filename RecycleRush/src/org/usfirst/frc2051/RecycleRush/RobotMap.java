@@ -45,7 +45,7 @@ public class RobotMap
 	static final double kD = .0000001;
 
 	// Lifter position potentiometer constants
-	public static final double LIFTER_DOWN = 0;
+	public static final double LIFTER_ZERO = 0;
 	public static final double LIFTER_ONE = 1;
 	public static final double LIFTER_TWO = 2;
 	public static final double LIFTER_THREE = 3;

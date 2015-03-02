@@ -14,7 +14,8 @@ public class LifterContainer extends Command {
 	}
 
 	// Called just before this Command runs the first time
-	protected void initialize() {
+	protected void initialize() 
+	{
 		Robot.lifterPIDLeft.enable();
 		Robot.lifterPIDRight.enable();
 		Robot.lifterPIDLeft.setSetpoint(RobotMap.LIFTER_CONTAINER);
