@@ -50,6 +50,6 @@ public class LifterPIDLeft extends PIDSubsystem
 	// Digital inputs return False when the limit switch is pressed
 	public boolean atLimit()
 	{
-		return (lifterTopLeft.get() == false) || (lifterBottomLeft.get() == false);
+		return !((lifterTopLeft.get() == true) || (lifterBottomLeft.get() == true));
 	}
 }
