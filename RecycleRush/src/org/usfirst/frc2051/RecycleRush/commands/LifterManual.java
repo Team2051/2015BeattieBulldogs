@@ -32,47 +32,51 @@ public class LifterManual extends Command
 	{
 		/*
 		 * Motor values for both lifter actuators need to be inverted
-		 */
-	
-		
-		System.out.println(lifterBottomRight.get());
-		System.out.println(lifterBottomLeft.get());
-		
-		if (lifterBottomRight.get() == true || lifterBottomLeft.get() == true)		// if bottom is hit
-		{			
-			System.out.println( "both false- moving down");
-			if (Robot.oi.controlStick.getY() > 0) 									// and moving down
-			{
-				RobotMap.lifterPIDDARTMotorLeft.set(0);								// stop
-				RobotMap.lifterPIDDARTMotorRight.set(0);
-			} 																		// if bottom is hit
-			else																	// but not moving down
-			{																		
-				RobotMap.lifterPIDDARTMotorLeft.set(Robot.oi.controlStick.getY());	// move up
-				RobotMap.lifterPIDDARTMotorRight.set(Robot.oi.controlStick.getY());
-			}
-		} 
-		else																		// if bottom is not hit
+		 */				
+		if ((lifterBottomRight.get() == true || lifterBottomLeft.get() == true)) // if
+																					// bottom
+																					// is
+																					// hit
 		{
-			System.out.println(lifterTopRight.get() + " "  + lifterTopLeft.get());
-			if (lifterTopRight.get() == true || lifterTopLeft.get() == true) 		// but top is hit (inverted switches)
+			if (Robot.oi.controlStick.getY() < 0) // and moving down
 			{
-				if (Robot.oi.controlStick.getY() < 0) 								// and moving up
-				{
-					RobotMap.lifterPIDDARTMotorLeft.set(0);	 						// stop
-					RobotMap.lifterPIDDARTMotorRight.set(0);
-				} 																	// if bottom is not hit
-				else																// but top is hit
-				{																	// and moving down
-					RobotMap.lifterPIDDARTMotorLeft.set(-Robot.oi.controlStick.getY()); // move down
-					RobotMap.lifterPIDDARTMotorRight.set(-Robot.oi.controlStick.getY());
-				}
-			}																		// if bottom is not hit
-			else																	// if top is not hit
+				RobotMap.lifterPIDDARTMotorLeft.set(0); // stop
+				RobotMap.lifterPIDDARTMotorRight.set(0);
+			} // if bottom is hit
+			else
+			// but not moving down
 			{
-				RobotMap.lifterPIDDARTMotorLeft.set(-Robot.oi.controlStick.getY()); 	// move freely
+				RobotMap.lifterPIDDARTMotorLeft.set(-Robot.oi.controlStick.getY()); // move
+																					// up
 				RobotMap.lifterPIDDARTMotorRight.set(-Robot.oi.controlStick.getY());
 			}
+		} else // if bottom is not hit
+		if ((lifterTopRight.get() == true || lifterTopLeft.get() == true)) // but
+																			// top
+																			// is
+																			// hit
+																			// (inverted
+																			// switches)
+		{
+			if (Robot.oi.controlStick.getY() > 0) // and moving up
+			{
+				RobotMap.lifterPIDDARTMotorLeft.set(0); // stop
+				RobotMap.lifterPIDDARTMotorRight.set(0);
+			} // if bottom is not hit
+			else
+			// but top is hit
+			{ // and moving down
+				RobotMap.lifterPIDDARTMotorLeft.set(-Robot.oi.controlStick.getY()); // move
+																					// down
+				RobotMap.lifterPIDDARTMotorRight.set(-Robot.oi.controlStick.getY());
+			}
+		} // if bottom is not hit
+		else
+		// if top is not hit
+		{
+			RobotMap.lifterPIDDARTMotorLeft.set(-Robot.oi.controlStick.getY()); // move
+																				// freely
+			RobotMap.lifterPIDDARTMotorRight.set(-Robot.oi.controlStick.getY());
 		}
 	}
 
