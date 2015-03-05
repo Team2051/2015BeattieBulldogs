@@ -47,14 +47,18 @@ public class OI
 
 	public JoystickButton disableGyroBtn;
 	public JoystickButton zeroGyroBtn;
-	public JoystickButton dropoffBtn;
 	public JoystickButton driveForwardBtn;
 	public JoystickButton controlLifterBtn;
+	public JoystickButton captureInBtn;
+	public JoystickButton captureOutBtn;
+	public JoystickButton captureLeftBtn;
+	public JoystickButton captureRightBtn;	
+	public JoystickButton lifterZeroBtn;
+	public JoystickButton lifterOneBtn;
 	public JoystickButton lifterTwoBtn;
 	public JoystickButton lifterThreeBtn;
 	public JoystickButton lifterFourBtn;
 	public JoystickButton lifterContainerBtn;
-
 	public OI()
 	{
 		driveStick = new Joystick(0);
@@ -64,26 +68,41 @@ public class OI
 		disableGyroBtn = new JoystickButton(driveStick, 11);
 		disableGyroBtn.toggleWhenPressed(new DisableGyro());
 
-		zeroGyroBtn = new JoystickButton(driveStick, 12);
+		zeroGyroBtn = new JoystickButton(driveStick, 9);
 		zeroGyroBtn.whenPressed(new ZeroGyro());
 
-		dropoffBtn = new JoystickButton(controlStick, 1);
-		dropoffBtn.whenPressed(new LifterOne());
-
-		controlLifterBtn = new JoystickButton(controlStick, 2);
+		controlLifterBtn = new JoystickButton(controlStick, 1);
 		controlLifterBtn.toggleWhenPressed(new LifterManual());
+		
+		captureInBtn = new JoystickButton(controlStick, 2);
+		captureInBtn.whileHeld(new CollectorIntake());
+		
+		captureOutBtn = new JoystickButton(controlStick, 3);
+		captureOutBtn.whileHeld(new CollectorPushout());
+		
+		captureLeftBtn = new JoystickButton(controlStick, 4);
+		captureLeftBtn.whileHeld(new CollectorSpinLeft());
 
-		lifterTwoBtn = new JoystickButton(controlStick, 6);
+		captureRightBtn = new JoystickButton(controlStick, 5);
+		captureRightBtn.whileHeld(new CollectorSpinRight());
+		
+		lifterOneBtn = new JoystickButton(controlStick, 6);
+		lifterOneBtn.whenPressed(new LifterOne());
+
+		lifterTwoBtn = new JoystickButton(controlStick, 7);
 		lifterTwoBtn.whenPressed(new LifterTwo());
+		
+		lifterZeroBtn = new JoystickButton(controlStick, 8);
+		lifterZeroBtn.whenPressed(new LifterZero());
+		
+		lifterContainerBtn = new JoystickButton(controlStick, 9);
+		lifterContainerBtn.whenPressed(new LifterContainer());
 
-		lifterThreeBtn = new JoystickButton(controlStick, 7);
+		lifterThreeBtn = new JoystickButton(controlStick, 10);
 		lifterThreeBtn.whenPressed(new LifterThree());
 
-		lifterFourBtn = new JoystickButton(controlStick, 10);
+		lifterFourBtn = new JoystickButton(controlStick, 11);
 		lifterFourBtn.whenPressed(new LifterFour());
-
-		lifterContainerBtn = new JoystickButton(controlStick, 11);
-		lifterContainerBtn.whenPressed(new LifterContainer());
 
 		// TODO Need to finalize the button layout (add collector commands,
 		// etc.)
