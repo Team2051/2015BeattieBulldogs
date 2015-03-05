@@ -115,7 +115,7 @@ public class OI
 		SmartDashboard.putData("Do Nothing", new DoNothing());
 		SmartDashboard.putData("Drive Backward", new DriveBackward(.3, 12));
 		SmartDashboard.putData("Drive By Joystick", new DriveByJoystick());
-		SmartDashboard.putData("Drive Forward", new DriveForward(.3, 12));
+		SmartDashboard.putData("Drive Forward", new DriveForward(.8, 24, Robot.driveSystem.getDistFwdBack()));
 		SmartDashboard.putData("Drive Side to Side (left)", new DriveSidetoSide(.3, 12, Direction.kLEFT));
 		SmartDashboard.putData("Drive Side to Side (right)", new DriveSidetoSide(.3, 12, Direction.kRIGHT));
 		SmartDashboard.putData("Lifter Cont", new LifterContainer());

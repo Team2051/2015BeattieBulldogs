@@ -9,24 +9,29 @@ import org.usfirst.frc2051.RecycleRush.Robot;
 public class DriveForward extends Command
 {
 
-	private double speed;
-	private double distance;
+	private double maxSpeed;
+	private double finalDist;
+	private double currentDist;
+	
 
 	/**
 	 * Drive the robot forward
 	 * 
-	 * @param speed
+	 * @param maxSpeed
 	 *            from 0 to 1
-	 * @param distance
+	 * @param finalDist
 	 *            in inches
+	 * @param currentDist
+	 * 			  Robot.driveSystem.getDistFwdBack()
 	 */
-	public DriveForward(double speed, double distance)
+	public DriveForward(double maxSpeed, double finalDist, double currentDist)
 	{
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.driveSystem);
 
-		this.speed = speed;
-		this.distance = distance;
+		this.maxSpeed = maxSpeed;
+		this.finalDist = finalDist;
+		this.currentDist = currentDist;
 	}
 
 	// Called just before this Command runs the first time
@@ -38,7 +43,7 @@ public class DriveForward extends Command
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute()
 	{
-		Robot.driveSystem.moveIt(speed);
+		Robot.driveSystem.moveIt(Robot.driveSystem.autonSpeed(maxSpeed, finalDist, currentDist));
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -46,7 +51,7 @@ public class DriveForward extends Command
 	{
 		// -Units: Inches
 		// -Numbers: final unit conversion = Inches
-		return Robot.driveSystem.getDistFwdBack() > distance;
+		return Robot.driveSystem.getDistFwdBack() >= finalDist;
 	}
 
 	// Called once after isFinished returns true

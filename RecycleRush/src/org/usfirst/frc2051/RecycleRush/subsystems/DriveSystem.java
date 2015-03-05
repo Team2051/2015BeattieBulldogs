@@ -82,6 +82,16 @@ public class DriveSystem extends Subsystem
 	{
 		mecanum.mecanumDrive_Cartesian(0, -speed, 0, driveGyro.isGyroEnabled() ? driveGyro.getAngle() : 0.0);
 	}
+	
+	public void moveItSpinLeft(double speed)
+	{
+		mecanum.mecanumDrive_Cartesian(0, 0, -speed, driveGyro.isGyroEnabled() ? driveGyro.getAngle() : 0.0);
+	}
+	
+	public void moveItSpinRight(double speed)
+	{
+		mecanum.mecanumDrive_Cartesian(0, 0, speed, driveGyro.isGyroEnabled() ? driveGyro.getAngle() : 0.0);
+	}
 
 	/**
 	 * Gets distance traveled since the last resetDist() when driving in the
@@ -116,6 +126,15 @@ public class DriveSystem extends Subsystem
 		initialLeftRearEnc = leftRearEnc.getDistance();
 	}
 
+	/**
+	 * 
+	 * @param maxSpeed
+	 * 				from 0 - 1
+	 * @param finalDist
+	 * 				in inches
+	 * @param currentDist
+	 * 				Robot.driveSystem.getDistFwdBack()
+	 */
 	public double autonSpeed(double maxSpeed, double finalDist, double currentDist)
 	{
 		final double rampSlope = ((1 - 0) / 12); // max speed minus min speed
