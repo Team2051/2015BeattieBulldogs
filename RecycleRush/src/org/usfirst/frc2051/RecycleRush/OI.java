@@ -104,9 +104,6 @@ public class OI
 		lifterFourBtn = new JoystickButton(controlStick, 11);
 		lifterFourBtn.whenPressed(new LifterFour());
 
-		// TODO Need to finalize the button layout (add collector commands,
-		// etc.)
-
 		// SmartDashboard Buttons for testing individual commands
 		// This should match the list of classes in the *.commands and *.groups
 		// packages
