@@ -173,4 +173,14 @@ public class OI
 		else
 			return 0;
 	}
+	
+	/** 
+	 * Translate throttle value from joystick (range -1..+1) into motor speed (range 0..+1)
+	 * The joystick value in the top position is -1, opposite of what might be expected,
+	 * so multiply by negative one to invert the readings.
+	 */
+	public static double throttleSpeed(Joystick stick)
+	{
+		return (-stick.getThrottle() + 1) / 2;
+	}
 }
