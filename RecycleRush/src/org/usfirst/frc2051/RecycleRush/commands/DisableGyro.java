@@ -5,9 +5,9 @@ import org.usfirst.frc2051.RecycleRush.Robot;
 
 /**
  * This command enables or disables the gyroscope It's intended to be on a
- * toggle button (in IO.java) The first press will run this command, putting the
- * gyro into disabled state The second press will kill this command, re-enabling
- * the gyro In between time, the command runs continuously but does nothing
+ * toggle button (in IO.java). The first press will run this command, putting the
+ * gyro into disabled state. The second press will kill this command, re-enabling
+ * the gyro. In between time, the command runs continuously but does nothing.
  */
 public class DisableGyro extends Command
 {
