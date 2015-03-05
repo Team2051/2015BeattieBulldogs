@@ -52,4 +52,9 @@ public class LifterPIDLeft extends PIDSubsystem
 	{
 		return !((lifterTopLeft.get() == true) || (lifterBottomLeft.get() == true));
 	}
+	
+	public boolean atSetLimit()
+	{
+		return ((dARTPositionLeft.get() > RobotMap.LIFTER_MAX) || (dARTPositionLeft.get() < RobotMap.LIFTER_MIN));
+	}
 }

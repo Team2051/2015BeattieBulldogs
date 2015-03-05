@@ -10,7 +10,6 @@
 
 package org.usfirst.frc2051.RecycleRush.commands;
 
-import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc2051.RecycleRush.Robot;

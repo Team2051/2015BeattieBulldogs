@@ -2,7 +2,6 @@ package org.usfirst.frc2051.RecycleRush.subsystems;
 
 import org.usfirst.frc2051.RecycleRush.RobotMap;
 
-import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**

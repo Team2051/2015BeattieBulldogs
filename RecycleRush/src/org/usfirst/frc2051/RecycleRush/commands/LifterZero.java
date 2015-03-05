@@ -35,7 +35,8 @@ public class LifterZero extends Command
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished()
 	{
-		return Robot.lifterPIDLeft.atLimit() || Robot.lifterPIDRight.atLimit() || (Robot.lifterPIDLeft.onTarget() && Robot.lifterPIDRight.onTarget());
+		return (Robot.lifterPIDLeft.onTarget() && Robot.lifterPIDRight.onTarget());
+		// || Robot.lifterPIDLeft.atLimit() || Robot.lifterPIDRight.atLimit();
 	}
 
 	// Called once after isFinished returns true

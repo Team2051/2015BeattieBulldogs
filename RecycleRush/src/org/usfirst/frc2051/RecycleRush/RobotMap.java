@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.PIDSource.PIDSourceParameter;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.usfirst.frc2051.RecycleRush.lib.PIDSpeedController;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -44,13 +43,15 @@ public class RobotMap
 	static final double kI = .0000001;
 	static final double kD = .0000001;
 
-	// Lifter position potentiometer constants
-	public static final double LIFTER_ZERO = .1;
-	public static final double LIFTER_ONE = .2;
-	public static final double LIFTER_TWO = .4;
-	public static final double LIFTER_THREE = .6;
-	public static final double LIFTER_FOUR = .8;
-	public static final double LIFTER_CONTAINER = .7;
+	// Lifter position potentiometer constants	
+	public static final double LIFTER_MIN = .1;
+	public static final double LIFTER_ZERO = .15;
+	public static final double LIFTER_ONE = .3;
+	public static final double LIFTER_TWO = .45;
+	public static final double LIFTER_THREE = .7;
+	public static final double LIFTER_FOUR = .85;
+	public static final double LIFTER_CONTAINER = .8;
+	public static final double LIFTER_MAX = .9;
 
 	public static void init()
 	{
@@ -85,16 +86,6 @@ public class RobotMap
 		LiveWindow.addSensor("Drive System", "Left Rear Enc", driveSystemLeftRearEnc);
 		driveSystemLeftRearEnc.setDistancePerPulse(1.0);
 		driveSystemLeftRearEnc.setPIDSourceParameter(PIDSourceParameter.kRate);
-
-		// driveSystemMecanum = new RobotDrive(new
-		// PIDSpeedController(driveSystemLeftFront, kP, kI, kD,
-		// driveSystemLeftFrontEnc),
-		// new PIDSpeedController(driveSystemLeftRear, kP, kI, kD,
-		// driveSystemLeftRearEnc),
-		// new PIDSpeedController(driveSystemRightFront, kP, kI, kD,
-		// driveSystemRightFrontEnc),
-		// new PIDSpeedController(driveSystemRightRear, kP, kI, kD,
-		// driveSystemRightRearEnc));
 
 		driveSystemMecanum = new RobotDrive(driveSystemLeftFront, driveSystemLeftRear, driveSystemRightFront, driveSystemRightRear);
 
