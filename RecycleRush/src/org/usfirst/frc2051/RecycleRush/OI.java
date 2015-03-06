@@ -92,11 +92,14 @@ public class OI
 		lifterTwoBtn = new JoystickButton(controlStick, 7);
 		lifterTwoBtn.whenPressed(new LifterTwo());
 		
-		lifterZeroBtn = new JoystickButton(controlStick, 8);
-		lifterZeroBtn.whenPressed(new LifterZero());
 		
+		lifterZeroBtn = new JoystickButton(controlStick, 8);
+		lifterZeroBtn.whileHeld(new CollectorAngleIn());
+//		lifterZeroBtn.whenPressed(new LifterZero());
+
 		lifterContainerBtn = new JoystickButton(controlStick, 9);
-		lifterContainerBtn.whenPressed(new LifterContainer());
+		lifterContainerBtn.whileHeld(new CollectorAngleOut());
+//		lifterContainerBtn.whenPressed(new LifterContainer());
 
 		lifterThreeBtn = new JoystickButton(controlStick, 10);
 		lifterThreeBtn.whenPressed(new LifterThree());

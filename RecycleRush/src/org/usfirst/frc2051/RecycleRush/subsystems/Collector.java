@@ -13,6 +13,7 @@ public class Collector extends Subsystem
 	Relay collectorLeft = RobotMap.collectorCollectorLeft;
 	DigitalInput collectorContactRight = RobotMap.collectorCollectorRightTripped;
 	DigitalInput collectorContactLeft = RobotMap.collectorCollectorLeftTripped;
+	SpeedController collectorAngle = RobotMap.collectorCollectorAngle;
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
@@ -51,5 +52,25 @@ public class Collector extends Subsystem
 	{
 		RobotMap.collectorCollectorLeft.set(Relay.Value.kReverse);
 		RobotMap.collectorCollectorRight.set(Relay.Value.kForward);
+	}
+	
+	public void angleIn()
+	{
+		collectorAngle.set(1);
+	}
+	
+	public void angleOut()
+	{
+		collectorAngle.set(-1);
+	}
+	
+	public void angleStop()
+	{
+		collectorAngle.set(0);
+	}
+	
+	public boolean atLimit()
+	{
+		return (collectorContactRight.get() == false || collectorContactLeft.get() == false);
 	}
 }
