@@ -55,16 +55,16 @@ public class RobotMap
 
 	public static void init()
 	{
-		driveSystemRightFront = new Talon(2);//0
+		driveSystemRightFront = new Talon(3);//0
 		LiveWindow.addActuator("Drive System", "Right Front", (Talon) driveSystemRightFront);
 
-		driveSystemRightRear = new Talon(3);//1
+		driveSystemRightRear = new Talon(2);//1
 		LiveWindow.addActuator("Drive System", "Right Rear", (Talon) driveSystemRightRear);
 
-		driveSystemLeftFront = new Talon(1);//2
+		driveSystemLeftFront = new Talon(0);//2
 		LiveWindow.addActuator("Drive System", "Left Front", (Talon) driveSystemLeftFront);
 
-		driveSystemLeftRear = new Talon(0);//3
+		driveSystemLeftRear = new Talon(1);//3
 		LiveWindow.addActuator("Drive System", "Left Rear", (Talon) driveSystemLeftRear);
 
 		driveSystemRightFrontEnc = new Encoder(0, 1, false, EncodingType.k4X);
@@ -93,8 +93,8 @@ public class RobotMap
 		driveSystemMecanum.setExpiration(0.1);
 		driveSystemMecanum.setSensitivity(0.5);
 		driveSystemMecanum.setMaxOutput(1.0);
-		driveSystemMecanum.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);//false
-		driveSystemMecanum.setInvertedMotor(RobotDrive.MotorType.kRearRight, false);//false
+		driveSystemMecanum.setInvertedMotor(RobotDrive.MotorType.kFrontRight, false);//false
+		driveSystemMecanum.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);//false
 		driveSystemMecanum.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, false);//true
 		driveSystemMecanum.setInvertedMotor(RobotDrive.MotorType.kRearLeft, false);//false
 

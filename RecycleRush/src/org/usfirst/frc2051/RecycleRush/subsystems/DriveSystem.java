@@ -70,27 +70,27 @@ public class DriveSystem extends Subsystem
 	 */
 	public void moveIt(double speed)
 	{
-		mecanum.mecanumDrive_Cartesian(-speed, 0, 0, driveGyro.isGyroEnabled() ? driveGyro.getAngle() : 0.0);
+		mecanum.mecanumDrive_Cartesian(0, -speed, 0, 0.0);
 	}
 
 	public void moveItSideLeft(double speed)
 	{
-		mecanum.mecanumDrive_Cartesian(0, speed, 0, driveGyro.isGyroEnabled() ? driveGyro.getAngle() : 0.0);
+		mecanum.mecanumDrive_Cartesian(-speed, 0, 0, 0.0);
 	}
 
 	public void moveItSideRight(double speed)
 	{
-		mecanum.mecanumDrive_Cartesian(0, -speed, 0, driveGyro.isGyroEnabled() ? driveGyro.getAngle() : 0.0);
+		mecanum.mecanumDrive_Cartesian(speed, 0, 0, 0.0);
 	}
 	
 	public void moveItSpinLeft(double speed)
 	{
-		mecanum.mecanumDrive_Cartesian(0, 0, -speed, driveGyro.isGyroEnabled() ? driveGyro.getAngle() : 0.0);
+		mecanum.mecanumDrive_Cartesian(0, 0, -speed, 0.0);
 	}
 	
 	public void moveItSpinRight(double speed)
 	{
-		mecanum.mecanumDrive_Cartesian(0, 0, speed, driveGyro.isGyroEnabled() ? driveGyro.getAngle() : 0.0);
+		mecanum.mecanumDrive_Cartesian(0, 0, speed, 0.0);
 	}
 
 	/**

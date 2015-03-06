@@ -2,6 +2,7 @@ package org.usfirst.frc2051.RecycleRush.groups;
 
 import org.usfirst.frc2051.RecycleRush.Robot;
 import org.usfirst.frc2051.RecycleRush.commands.*;
+import org.usfirst.frc2051.RecycleRush.commands.DriveSidetoSide.Direction;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -10,7 +11,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class Dance extends CommandGroup
 {
-
 	public Dance()
 	{
 		// Add Commands here:
@@ -32,12 +32,18 @@ public class Dance extends CommandGroup
 		
 		// lower lifter
 		//addSequential(new LifterZero());
+		
 		// drive to box
-		addSequential(new DriveForward(.5, 12, Robot.driveSystem.getDistFwdBack()));
+		addSequential(new DriveSidetoSide(.7, 6, Direction.kRIGHT));
+		
 		//lift box
 		//addSequential(new LifterOne());
+		
+		//stop for 2 seconds
+		addSequential(new Delay(1));
+		
 		// move to auto zone
-		addSequential(new DriveForward(.8, 180, Robot.driveSystem.getDistFwdBack()));
+		addSequential(new AutonDriveForward(.7));
 		
 	}
 }

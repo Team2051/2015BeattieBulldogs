@@ -31,12 +31,12 @@ public class DriveSidetoSide extends Command
 	/**
 	 * Drive the robot side to side
 	 * 
-	 * @param side
-	 *            left : 0 right: 1
 	 * @param speed
 	 *            from 0 to 1
 	 * @param distance
 	 *            in inches
+	 * @param side
+	 *            Direction.kLEFT or kRIGHT
 	 */
 	public DriveSidetoSide(double speed, double distance, Direction side)
 	{
