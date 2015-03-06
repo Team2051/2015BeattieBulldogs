@@ -15,7 +15,7 @@ public class LifterManual extends Command
 	
 	
 	// (max - min) / (constant * iterations per second)
-	double lifterSetPtRatio = (RobotMap.LIFTER_MAX - RobotMap.LIFTER_MIN) / (lifterConst * 50);
+	double lifterSetPtRatio = RobotMap.LIFTER_RANGE / (lifterConst * 50);
 
 	AnalogPotentiometer lifterPosLeft = RobotMap.lifterPIDDARTPositionLeft;
 	AnalogPotentiometer lifterPosRight = RobotMap.lifterPIDDARTPositionRight;

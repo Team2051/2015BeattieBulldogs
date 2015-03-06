@@ -36,7 +36,7 @@ public class LifterPIDLeft extends PIDSubsystem
 		// Return your input value for the PID loop
 		// e.g. a sensor, like a potentiometer:
 		// yourPot.getAverageVoltage() / kYourMaxVoltage;
-		return dARTPositionLeft.pidGet();
+		return dARTPositionLeft.pidGet() - RobotMap.LIFTER_LEFT_MINUS_RIGHT;
 	}
 
 	protected void usePIDOutput(double output)

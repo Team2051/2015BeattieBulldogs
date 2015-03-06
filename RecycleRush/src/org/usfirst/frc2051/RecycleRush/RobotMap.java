@@ -43,17 +43,22 @@ public class RobotMap
 	static final double kI = .0000001;
 	static final double kD = .0000001;
 
-	// Lifter position potentiometer constants	
-	public static final double LIFTER_MIN_LEFT = .1;
-	public static final double LIFTER_MIN_RIGHT = .1;
-	public static final double LIFTER_MIN = .1;
-	public static final double LIFTER_ZERO = .15;
-	public static final double LIFTER_ONE = .3;
-	public static final double LIFTER_TWO = .45;
-	public static final double LIFTER_THREE = .7;
-	public static final double LIFTER_FOUR = .85;
-	public static final double LIFTER_CONTAINER = .8;
-	public static final double LIFTER_MAX = .9;
+	// Lifter position potentiometer constants
+	// left 10K pot
+	// right 5 k pot
+	// right min and max recorded
+	// add left_minus_right from right pots to get left pots
+	// subtract left_minus_right from left pots to get right pots
+	public static final double LIFTER_MAX = .4676;
+	public static final double LIFTER_MIN = .03692;
+	public static final double LIFTER_LEFT_MINUS_RIGHT = .08974;
+	public static final double LIFTER_RANGE = LIFTER_MAX - LIFTER_MIN;
+	public static final double LIFTER_ZERO = LIFTER_MIN + (LIFTER_RANGE / 6) * 1;
+	public static final double LIFTER_ONE = LIFTER_MIN + (LIFTER_RANGE / 6) * 2;
+	public static final double LIFTER_TWO = LIFTER_MIN + (LIFTER_RANGE / 6) * 3;
+	public static final double LIFTER_THREE = LIFTER_MIN + (LIFTER_RANGE / 6) * 4;
+	public static final double LIFTER_FOUR = LIFTER_MIN + (LIFTER_RANGE / 6) * 5;
+	public static final double LIFTER_CONTAINER = LIFTER_MIN + (LIFTER_RANGE / 6) * 3.5;
 
 	public static void init()
 	{
