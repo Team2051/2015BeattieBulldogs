@@ -87,10 +87,12 @@ public class OI
 		captureRightBtn.whileHeld(new CollectorSpinRight());
 		
 		lifterOneBtn = new JoystickButton(controlStick, 6);
-		lifterOneBtn.whenPressed(new LifterOne());
+		lifterOneBtn.whileHeld(new LifterLeftUp());
+//		lifterOneBtn.whenPressed(new LifterOne());
 
 		lifterTwoBtn = new JoystickButton(controlStick, 7);
-		lifterTwoBtn.whenPressed(new LifterTwo());
+		lifterTwoBtn.whileHeld(new LifterLeftDown());
+//		lifterTwoBtn.whenPressed(new LifterTwo());
 		
 		
 		lifterZeroBtn = new JoystickButton(controlStick, 8);
@@ -102,10 +104,12 @@ public class OI
 //		lifterContainerBtn.whenPressed(new LifterContainer());
 
 		lifterThreeBtn = new JoystickButton(controlStick, 10);
-		lifterThreeBtn.whenPressed(new LifterThree());
+		lifterThreeBtn.whileHeld(new LifterRightDown());
+//		lifterThreeBtn.whenPressed(new LifterThree());
 
 		lifterFourBtn = new JoystickButton(controlStick, 11);
-		lifterFourBtn.whenPressed(new LifterFour());
+		lifterFourBtn.whileHeld(new LifterRightUp());
+//		lifterFourBtn.whenPressed(new LifterFour());
 
 		// SmartDashboard Buttons for testing individual commands
 		// This should match the list of classes in the *.commands and *.groups
