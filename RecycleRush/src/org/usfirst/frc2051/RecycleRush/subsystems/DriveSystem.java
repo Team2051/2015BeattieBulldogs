@@ -49,7 +49,7 @@ public class DriveSystem extends Subsystem
 	{
 		// If the gyro is enabled, factor that into driving, else use a value of
 		// zero
-		mecanum.mecanumDrive_Cartesian(OI.deadBand(driveStick.getX()), OI.deadBand(driveStick.getY()), OI.twistDeadBand(driveStick.getZ()), driveGyro.isGyroEnabled() ? driveGyro.getAngle() : 0.0);
+		mecanum.mecanumDrive_Cartesian(OI.deadBand(driveStick.getX()), OI.deadBand(driveStick.getY()), OI.deadBand(driveStick.getZ()), 0.0);
 
 		SmartDashboard.putNumber("Left Front Enc", leftFrontEnc.getDistance());
 		SmartDashboard.putNumber("Left Rear Enc", leftRearEnc.getDistance());

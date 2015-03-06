@@ -94,11 +94,11 @@ public class OI
 		
 		
 		lifterZeroBtn = new JoystickButton(controlStick, 8);
-		lifterZeroBtn.whileHeld(new CollectorAngleIn());
+		lifterZeroBtn.whileHeld(new CollectorAngleOut());
 //		lifterZeroBtn.whenPressed(new LifterZero());
 
 		lifterContainerBtn = new JoystickButton(controlStick, 9);
-		lifterContainerBtn.whileHeld(new CollectorAngleOut());
+		lifterContainerBtn.whileHeld(new CollectorAngleIn());
 //		lifterContainerBtn.whenPressed(new LifterContainer());
 
 		lifterThreeBtn = new JoystickButton(controlStick, 10);
@@ -129,7 +129,7 @@ public class OI
 		SmartDashboard.putData("Lifter Two", new LifterTwo());
 		SmartDashboard.putData("Lifter Zero", new LifterZero());
 		SmartDashboard.putData("Zero Drive Gyro", new ZeroGyro());
-		SmartDashboard.putData("Dance", new Dance());
+		SmartDashboard.putData("Dance", new AutonRight());
 	}
 
 	public Joystick getDriveStick()

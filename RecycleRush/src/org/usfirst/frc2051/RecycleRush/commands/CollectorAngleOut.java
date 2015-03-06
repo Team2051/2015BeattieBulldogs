@@ -25,7 +25,7 @@ public class CollectorAngleOut extends Command
 	protected boolean isFinished()
 	{
 
-		return Robot.collector.atLimit();
+		return Robot.collector.atLimitOut();
 	}
 
 	protected void end()

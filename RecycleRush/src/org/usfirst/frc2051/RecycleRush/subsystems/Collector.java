@@ -69,8 +69,13 @@ public class Collector extends Subsystem
 		collectorAngle.set(0);
 	}
 	
-	public boolean atLimit()
+	public boolean atLimitOut()
 	{
-		return (collectorContactRight.get() == false || collectorContactLeft.get() == false);
+		return collectorContactRight.get() == false;
+	}
+	
+	public boolean atLimitIn()
+	{
+		return collectorContactLeft.get() == false;
 	}
 }

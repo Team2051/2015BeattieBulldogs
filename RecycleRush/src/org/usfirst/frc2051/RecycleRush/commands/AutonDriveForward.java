@@ -16,7 +16,7 @@ public class AutonDriveForward extends Command {
 	protected void initialize() 
 	{
 		Robot.driveSystem.resetDist();
-		setTimeout(1.7);
+		setTimeout(2);
 	}
 
 	protected void execute() 

@@ -25,7 +25,7 @@ public class CollectorAngleIn extends Command
 	protected boolean isFinished()
 	{
 
-		return Robot.collector.atLimit();
+		return Robot.collector.atLimitIn();
 	}
 
 	protected void end()

@@ -9,9 +9,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class CopyOfDance extends CommandGroup
+public class AutonMiddle extends CommandGroup
 {
-	public CopyOfDance()
+	public AutonMiddle()
 	{
 		// Add Commands here:
 		// e.g. addSequential(new Command1());
@@ -34,7 +34,7 @@ public class CopyOfDance extends CommandGroup
 		//addSequential(new LifterZero());
 		
 		// drive to box
-		//addSequential(new DriveSidetoSide(.7, 3, Direction.kLEFT));
+		//addSequential(new DriveSidetoSide(.7, 3, Direction.kRIGHT));
 		
 		//lift box
 		//addSequential(new LifterOne());
@@ -43,7 +43,7 @@ public class CopyOfDance extends CommandGroup
 		//addSequential(new Delay(1));
 		
 		// move to auto zone
-		addSequential(new AutonDriveForward(.4));
+		addSequential(new AutonDriveForward(.5));
 		
 	}
 }

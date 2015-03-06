@@ -44,6 +44,8 @@ public class RobotMap
 	static final double kD = .0000001;
 
 	// Lifter position potentiometer constants	
+	public static final double LIFTER_MIN_LEFT = .1;
+	public static final double LIFTER_MIN_RIGHT = .1;
 	public static final double LIFTER_MIN = .1;
 	public static final double LIFTER_ZERO = .15;
 	public static final double LIFTER_ONE = .3;
@@ -139,12 +141,12 @@ public class RobotMap
 		LiveWindow.addActuator("Collector", "Collector Left", collectorCollectorLeft);
 
 		collectorCollectorLeftTripped = new DigitalInput(23);
-		LiveWindow.addSensor("Collector", "Collector Opened", collectorCollectorLeftTripped);
+		LiveWindow.addSensor("Collector", "Collector Angle In", collectorCollectorLeftTripped);
 
 		collectorCollectorRightTripped = new DigitalInput(24);
-		LiveWindow.addSensor("Collector", "Collector Closed", collectorCollectorRightTripped);
+		LiveWindow.addSensor("Collector", "Collector Angle Out", collectorCollectorRightTripped);
 
 		collectorCollectorAngle = new Talon(6);
-		LiveWindow.addActuator("Spare", "Spare Talon 6", (Talon) collectorCollectorAngle);
+		LiveWindow.addActuator("Collector", "Collector Angle", (Talon) collectorCollectorAngle);
 	}
 }
