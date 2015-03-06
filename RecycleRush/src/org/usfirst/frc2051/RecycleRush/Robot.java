@@ -57,7 +57,7 @@ public class Robot extends IterativeRobot
 
 		// Create SmartDashboard menu to select the autonomous period command
 		autoChooser = new SendableChooser();
-		autoChooser.addDefault("Drive Left and Forward", new Dance());
+		autoChooser.addDefault("Drive Right 24 Inches and Forward", new Dance());
 		autoChooser.addObject("Drive Forward", new DriveForward(0.5, 24, Robot.driveSystem.getDistFwdBack()));
 		autoChooser.addObject("Do Nothing", new DoNothing());
 		SmartDashboard.putData("Auto Chooser", autoChooser);

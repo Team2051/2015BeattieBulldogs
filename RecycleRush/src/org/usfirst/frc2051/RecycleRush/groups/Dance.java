@@ -34,7 +34,7 @@ public class Dance extends CommandGroup
 		//addSequential(new LifterZero());
 		
 		// drive to box
-		addSequential(new DriveSidetoSide(.7, 6, Direction.kRIGHT));
+		addSequential(new DriveSidetoSide(.7, 3, Direction.kRIGHT));
 		
 		//lift box
 		//addSequential(new LifterOne());
