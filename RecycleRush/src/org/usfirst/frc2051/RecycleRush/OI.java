@@ -68,8 +68,8 @@ public class OI
 		disableGyroBtn = new JoystickButton(driveStick, 11);
 		disableGyroBtn.toggleWhenPressed(new DisableGyro());
 
-		zeroGyroBtn = new JoystickButton(driveStick, 9);
-		zeroGyroBtn.whenPressed(new ZeroGyro());
+		//zeroGyroBtn = new JoystickButton(driveStick, 9);
+		//zeroGyroBtn.whenPressed(new ZeroGyro());
 
 		controlLifterBtn = new JoystickButton(controlStick, 1);
 		controlLifterBtn.toggleWhenPressed(new LifterManual());
