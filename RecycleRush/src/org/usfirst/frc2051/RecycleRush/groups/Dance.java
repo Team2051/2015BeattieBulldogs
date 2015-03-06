@@ -43,7 +43,7 @@ public class Dance extends CommandGroup
 		addSequential(new Delay(1));
 		
 		// move to auto zone
-		addSequential(new AutonDriveForward(.7));
+		addSequential(new AutonDriveForward(.4));
 		
 	}
 }
