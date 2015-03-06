@@ -25,6 +25,7 @@ public class LifterManual extends Command
 	DigitalInput lifterBottomLeft = RobotMap.lifterPIDLifterBottomLeft;
 
 	public LifterManual()
+	
 	{
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.lifterPIDLeft);

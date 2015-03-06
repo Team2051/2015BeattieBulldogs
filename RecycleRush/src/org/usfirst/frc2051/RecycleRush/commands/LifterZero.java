@@ -24,7 +24,7 @@ public class LifterZero extends Command
 		Robot.lifterPIDLeft.enable();
 		Robot.lifterPIDRight.enable();
 		Robot.lifterPIDLeft.setSetpoint(RobotMap.LIFTER_ZERO);
-		Robot.lifterPIDRight.setSetpoint(RobotMap.LIFTER_ZERO);
+		Robot.lifterPIDRight.setSetpoint(-RobotMap.LIFTER_ZERO);
 	}
 
 	// Called repeatedly when this Command is scheduled to run

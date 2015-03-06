@@ -93,8 +93,10 @@ public class RobotMap
 		driveSystemMecanum.setExpiration(0.1);
 		driveSystemMecanum.setSensitivity(0.5);
 		driveSystemMecanum.setMaxOutput(1.0);
-		driveSystemMecanum.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
-		driveSystemMecanum.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
+		driveSystemMecanum.setInvertedMotor(RobotDrive.MotorType.kFrontRight, false);
+		driveSystemMecanum.setInvertedMotor(RobotDrive.MotorType.kRearRight, false);
+		driveSystemMecanum.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+		driveSystemMecanum.setInvertedMotor(RobotDrive.MotorType.kRearLeft, false);
 
 		driveSystemGyro = new Gyro(0);
 		LiveWindow.addSensor("Drive System", "Gyro", driveSystemGyro);
@@ -105,10 +107,10 @@ public class RobotMap
 		// driveSystemUltrasonic);
 
 		lifterPIDDARTMotorLeft = new Talon(4);
-		LiveWindow.addActuator("Lifter PID", "DART Motors Left", (Talon) lifterPIDDARTMotorLeft);
+		LiveWindow.addActuator("Lifter PID", "DART Motors Right", (Talon) lifterPIDDARTMotorLeft);
 
 		lifterPIDDARTMotorRight = new Talon(5);
-		LiveWindow.addActuator("Lifter PID", "DART Motors RIght", (Talon) lifterPIDDARTMotorRight);
+		LiveWindow.addActuator("Lifter PID", "DART Motors Left", (Talon) lifterPIDDARTMotorRight);
 
 		lifterPIDDARTPositionLeft = new AnalogPotentiometer(1, 1.0, 0.0);
 		LiveWindow.addSensor("Lifter PID", "DART Position Left", lifterPIDDARTPositionLeft);

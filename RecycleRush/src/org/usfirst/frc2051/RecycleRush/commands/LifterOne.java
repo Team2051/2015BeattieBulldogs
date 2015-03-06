@@ -23,8 +23,8 @@ public class LifterOne extends Command
 	{
 		Robot.lifterPIDLeft.enable();
 		Robot.lifterPIDRight.enable();
-		Robot.lifterPIDLeft.setSetpoint(RobotMap.LIFTER_ONE);
-		Robot.lifterPIDRight.setSetpoint(RobotMap.LIFTER_ONE);
+		Robot.lifterPIDLeft.setSetpoint(-RobotMap.LIFTER_ONE);
+		Robot.lifterPIDRight.setSetpoint(-RobotMap.LIFTER_ONE);
 	}
 
 	// Called repeatedly when this Command is scheduled to run

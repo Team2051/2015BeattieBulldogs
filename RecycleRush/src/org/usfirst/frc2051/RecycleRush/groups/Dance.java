@@ -30,10 +30,14 @@ public class Dance extends CommandGroup
 		// a CommandGroup containing them would require both the chassis and the
 		// arm.
 		
-		//lower lifter
-		addSequential(new LifterZero());
-		//move to auto zone
-		addSequential(new DriveForward(.8, 150, Robot.driveSystem.getDistFwdBack()));
+		// lower lifter
+		//addSequential(new LifterZero());
+		// drive to box
+		addSequential(new DriveForward(.5, 12, Robot.driveSystem.getDistFwdBack()));
+		//lift box
+		//addSequential(new LifterOne());
+		// move to auto zone
+		addSequential(new DriveForward(.8, 180, Robot.driveSystem.getDistFwdBack()));
 		
 	}
 }

@@ -47,7 +47,7 @@ public class Robot extends IterativeRobot
 		lifterPIDLeft = new LifterPIDLeft();
 		lifterPIDRight = new LifterPIDRight();
 		collector = new Collector();
-		camera = new Camera();
+		//camera = new Camera();
 
 		// OI must be constructed after subsystems. If the OI creates Commands
 		// (which it very likely will), subsystems are not guaranteed to be
