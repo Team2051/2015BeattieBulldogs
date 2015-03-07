@@ -23,7 +23,8 @@ public class LifterRightDown extends Command
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute()
 	{		
-		Robot.lifterRight.down();
+		if(Robot.lifterPIDRight.getPosition() > RobotMap.LIFTER_MIN)
+			Robot.lifterRight.down();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
