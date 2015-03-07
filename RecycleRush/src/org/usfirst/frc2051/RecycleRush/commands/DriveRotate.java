@@ -1,33 +1,30 @@
 package org.usfirst.frc2051.RecycleRush.commands;
 
 import org.usfirst.frc2051.RecycleRush.Robot;
+import org.usfirst.frc2051.RecycleRush.RobotMap.Direction;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 public class DriveRotate extends Command{
 
-	public enum Direction
-	{
-		kLEFT, kRIGHT
-	}
-	
 	private double speed;
-	private double distance;
+	private int angle;
 	private Direction side;
 	
 	/**
 	 * 
 	 * @param speed
-	 * @param distance
-	 * 			angle in degrees 0 - 360
+	 * @param angle
+	 * 			0 - 360
 	 * @param side
 	 * 			Left or Right
 	 */
-	public DriveRotate(double speed, double distance, Direction side) 
+	public DriveRotate(double speed, int angle, Direction side) 
 	{
 		requires(Robot.driveSystem);
 
 		this.speed = speed;
-		this.distance = distance;
+		this.angle = angle;
 		this.side = side;
 	}
 
@@ -46,7 +43,7 @@ public class DriveRotate extends Command{
 
 	protected boolean isFinished() 
 	{
-		return (side == Direction.kLEFT ? Math.abs(Robot.driveGyro.getAngle()) : Math.abs(Robot.driveGyro.getAngle())) >= distance;
+		return (side == Direction.kLEFT ? Math.abs(Robot.driveGyro.getAngle()) : Math.abs(Robot.driveGyro.getAngle())) >= angle;
 	}
 
 	protected void end() 

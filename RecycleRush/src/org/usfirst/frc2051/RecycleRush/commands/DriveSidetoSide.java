@@ -13,17 +13,13 @@ package org.usfirst.frc2051.RecycleRush.commands;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc2051.RecycleRush.Robot;
+import org.usfirst.frc2051.RecycleRush.RobotMap.Direction;
 
 /**
  *
  */
 public class DriveSidetoSide extends Command
 {
-	public enum Direction
-	{
-		kLEFT, kRIGHT
-	}
-
 	private double speed;
 	private double distance;
 	private Direction side;

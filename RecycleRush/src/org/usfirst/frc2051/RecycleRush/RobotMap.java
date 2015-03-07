@@ -60,6 +60,13 @@ public class RobotMap
 	public static final double LIFTER_FOUR = LIFTER_MIN + (LIFTER_RANGE / 6) * 5;
 	public static final double LIFTER_CONTAINER = LIFTER_MIN + (LIFTER_RANGE / 6) * 3.5;
 
+	
+	// Directional Constants
+	public enum Direction
+	{
+		kLEFT, kRIGHT
+	}
+	
 	public static void init()
 	{
 		driveSystemRightFront = new Talon(3);//0

@@ -1,8 +1,7 @@
 package org.usfirst.frc2051.RecycleRush.groups;
 
-import org.usfirst.frc2051.RecycleRush.Robot;
+import org.usfirst.frc2051.RecycleRush.RobotMap.Direction;
 import org.usfirst.frc2051.RecycleRush.commands.*;
-import org.usfirst.frc2051.RecycleRush.commands.DriveSidetoSide.Direction;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -34,7 +33,7 @@ public class AutonMiddle extends CommandGroup
 		//addSequential(new LifterZero());
 		
 		// drive to box
-		//addSequential(new DriveSidetoSide(.7, 3, Direction.kRIGHT));
+		addSequential(new AutonDriveSidetoSide(.5, Direction.kLEFT));
 		
 		//lift box
 		//addSequential(new LifterOne());
@@ -43,7 +42,7 @@ public class AutonMiddle extends CommandGroup
 		//addSequential(new Delay(1));
 		
 		// move to auto zone
-		addSequential(new AutonDriveForward(.5));
+		//addSequential(new AutonDriveForward(.5));
 		
 	}
 }

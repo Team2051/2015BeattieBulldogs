@@ -1,8 +1,8 @@
 package org.usfirst.frc2051.RecycleRush.groups;
 
 import org.usfirst.frc2051.RecycleRush.Robot;
+import org.usfirst.frc2051.RecycleRush.RobotMap.Direction;
 import org.usfirst.frc2051.RecycleRush.commands.*;
-import org.usfirst.frc2051.RecycleRush.commands.DriveSidetoSide.Direction;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -34,7 +34,7 @@ public class AutonRight extends CommandGroup
 		//addSequential(new LifterZero());
 		
 		// drive to box
-		//addSequential(new DriveSidetoSide(.7, 3, Direction.kRIGHT));
+		addSequential(new DriveSidetoSide(.7, 3, Direction.kRIGHT));
 		
 		//lift box
 		//addSequential(new LifterOne());
