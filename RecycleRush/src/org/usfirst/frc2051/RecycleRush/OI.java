@@ -86,11 +86,11 @@ public class OI
 		captureRightBtn = new JoystickButton(controlStick, 5);
 		captureRightBtn.whileHeld(new CollectorSpinRight());
 		
-		lifterOneBtn = new JoystickButton(controlStick, 6);
+		lifterOneBtn = new JoystickButton(controlStick, 11);
 		lifterOneBtn.whileHeld(new LifterLeftUp());
 //		lifterOneBtn.whenPressed(new LifterOne());
 
-		lifterTwoBtn = new JoystickButton(controlStick, 7);
+		lifterTwoBtn = new JoystickButton(controlStick, 10);
 		lifterTwoBtn.whileHeld(new LifterLeftDown());
 //		lifterTwoBtn.whenPressed(new LifterTwo());
 		
@@ -103,11 +103,11 @@ public class OI
 		lifterContainerBtn.whileHeld(new CollectorAngleIn());
 //		lifterContainerBtn.whenPressed(new LifterContainer());
 
-		lifterThreeBtn = new JoystickButton(controlStick, 10);
+		lifterThreeBtn = new JoystickButton(controlStick, 7);
 		lifterThreeBtn.whileHeld(new LifterRightDown());
 //		lifterThreeBtn.whenPressed(new LifterThree());
 
-		lifterFourBtn = new JoystickButton(controlStick, 11);
+		lifterFourBtn = new JoystickButton(controlStick, 6);
 		lifterFourBtn.whileHeld(new LifterRightUp());
 //		lifterFourBtn.whenPressed(new LifterFour());
 
