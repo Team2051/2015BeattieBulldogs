@@ -31,6 +31,8 @@ public class Robot extends IterativeRobot
 	public static LifterPIDRight lifterPIDRight;
 	public static Collector collector;
 	public static Camera camera;
+	public static LifterLeft lifterLeft;
+	public static LifterRight lifterRight;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -48,6 +50,8 @@ public class Robot extends IterativeRobot
 		lifterPIDRight = new LifterPIDRight();
 		collector = new Collector();
 		//camera = new Camera();
+		lifterLeft = new LifterLeft();
+		lifterRight = new LifterRight();
 
 		// OI must be constructed after subsystems. If the OI creates Commands
 		// (which it very likely will), subsystems are not guaranteed to be
@@ -57,9 +61,9 @@ public class Robot extends IterativeRobot
 
 		// Create SmartDashboard menu to select the autonomous period command
 		autoChooser = new SendableChooser();
-		autoChooser.addDefault("Red Team Forward", new AutonRight());
-		autoChooser.addObject("Blue Team Forward", new AutonLeft());
-		autoChooser.addObject("Do Nothing", new DoNothing());
+		autoChooser.addDefault("Right Side Forward", new AutonRight());
+		autoChooser.addObject("Left Side Forward", new AutonLeft());
+		autoChooser.addObject("Middle Area Forward", new DoNothing());
 		SmartDashboard.putData("Auto Chooser", autoChooser);
 	}
 

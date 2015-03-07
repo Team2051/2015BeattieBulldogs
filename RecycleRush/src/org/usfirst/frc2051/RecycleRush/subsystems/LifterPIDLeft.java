@@ -2,7 +2,9 @@ package org.usfirst.frc2051.RecycleRush.subsystems;
 
 import org.usfirst.frc2051.RecycleRush.RobotMap;
 
-import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.AnalogPotentiometer;
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 

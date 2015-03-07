@@ -11,19 +11,19 @@ public class LifterRightUp extends Command
 	public LifterRightUp()
 	{
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.lifterPIDRight);
+		requires(Robot.lifterRight);
 	}
 
 	// Called just before this Command runs the first time
 	protected void initialize()
 	{
-		Robot.lifterPIDRight.enable();
+
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute()
 	{
-		Robot.lifterPIDRight.setSetpoint(Robot.lifterPIDRight.getPosition() + .03);
+		Robot.lifterRight.up();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -35,7 +35,7 @@ public class LifterRightUp extends Command
 	// Called once after isFinished returns true
 	protected void end()
 	{
-		Robot.lifterPIDRight.disable();
+		Robot.lifterRight.stop();
 	}
 
 	// Called when another command which requires one or more of the same
