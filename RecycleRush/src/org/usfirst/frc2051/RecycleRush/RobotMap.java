@@ -50,8 +50,8 @@ public class RobotMap
 	// add left_minus_right from right pots to get left pots
 	// subtract left_minus_right from left pots to get right pots
 	public static final double LIFTER_MAX = .9;
-	public static final double LIFTER_MIN = .5;
-	public static final double LIFTER_LEFT_MINUS_RIGHT = .04;
+	public static final double LIFTER_MIN = .53;
+	public static final double LIFTER_LEFT_MINUS_RIGHT = .06;
 	public static final double LIFTER_RANGE = LIFTER_MAX - LIFTER_MIN;
 	public static final double LIFTER_ZERO = LIFTER_MIN + (LIFTER_RANGE / 6) * 1;
 	public static final double LIFTER_ONE = LIFTER_MIN + (LIFTER_RANGE / 6) * 2;
@@ -132,13 +132,13 @@ public class RobotMap
 		lifterPIDDARTPositionRight = new AnalogPotentiometer(2, 1.0, 0.0);
 		LiveWindow.addSensor("Lifter PID", "DART Position Right", lifterPIDDARTPositionRight);
 
-		lifterPIDLifterTopLeft = new DigitalInput(9);
+		lifterPIDLifterTopLeft = new DigitalInput(24);
 		LiveWindow.addSensor("Lifter PID", "Lifter At Top Left", lifterPIDLifterTopLeft);
 
 		lifterPIDLifterTopRight = new DigitalInput(21);
 		LiveWindow.addSensor("Lifter PID", "Lifter At Top Right", lifterPIDLifterTopRight);
 
-		lifterPIDLifterBottomLeft = new DigitalInput(8);
+		lifterPIDLifterBottomLeft = new DigitalInput(23);
 		LiveWindow.addSensor("Lifter PID", "Lifter At Bottom Left", lifterPIDLifterBottomLeft);
 
 		lifterPIDLifterBottomRight = new DigitalInput(22);
@@ -152,10 +152,10 @@ public class RobotMap
 		collectorCollectorLeft.setDirection(Relay.Direction.kBoth);
 		LiveWindow.addActuator("Collector", "Collector Left", collectorCollectorLeft);
 
-		collectorCollectorLeftTripped = new DigitalInput(23);
+		collectorCollectorLeftTripped = new DigitalInput(9);
 		LiveWindow.addSensor("Collector", "Collector Angle In", collectorCollectorLeftTripped);
 
-		collectorCollectorRightTripped = new DigitalInput(24);
+		collectorCollectorRightTripped = new DigitalInput(8);
 		LiveWindow.addSensor("Collector", "Collector Angle Out", collectorCollectorRightTripped);
 
 		collectorCollectorAngle = new Talon(6);
