@@ -153,10 +153,10 @@ public class RobotMap
 		LiveWindow.addActuator("Collector", "Collector Left", collectorCollectorLeft);
 
 		collectorCollectorLeftTripped = new DigitalInput(9);
-		LiveWindow.addSensor("Collector", "Collector Angle In", collectorCollectorLeftTripped);
+		LiveWindow.addSensor("Collector", "Collector Angle In (Left)", collectorCollectorLeftTripped);
 
 		collectorCollectorRightTripped = new DigitalInput(8);
-		LiveWindow.addSensor("Collector", "Collector Angle Out", collectorCollectorRightTripped);
+		LiveWindow.addSensor("Collector", "Collector Angle Out (Right)", collectorCollectorRightTripped);
 
 		collectorCollectorAngle = new Talon(6);
 		LiveWindow.addActuator("Collector", "Collector Angle", (Talon) collectorCollectorAngle);
