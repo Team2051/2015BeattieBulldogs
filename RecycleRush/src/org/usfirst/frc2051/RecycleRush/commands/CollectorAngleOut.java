@@ -19,7 +19,10 @@ public class CollectorAngleOut extends Command
 
 	protected void execute()
 	{
-		Robot.collector.angleOut();
+		if(!Robot.collector.atLimitOut())
+		{
+			Robot.collector.angleOut();
+		}
 	}
 
 	protected boolean isFinished()
