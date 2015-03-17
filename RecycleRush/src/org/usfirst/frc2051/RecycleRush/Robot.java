@@ -26,7 +26,7 @@ public class Robot extends IterativeRobot
 
 	public static OI oi;
 	public static DriveSystem driveSystem;
-	public static DriveGyro driveGyro;
+//	public static DriveGyro driveGyro;
 	public static LifterPIDLeft lifterPIDLeft;
 	public static LifterPIDRight lifterPIDRight;
 	public static Collector collector;
@@ -44,7 +44,7 @@ public class Robot extends IterativeRobot
 		RobotMap.init();
 
 		// Create subsystems
-		driveGyro = new DriveGyro();
+//		driveGyro = new DriveGyro();
 		driveSystem = new DriveSystem();
 		lifterPIDLeft = new LifterPIDLeft();
 		lifterPIDRight = new LifterPIDRight();

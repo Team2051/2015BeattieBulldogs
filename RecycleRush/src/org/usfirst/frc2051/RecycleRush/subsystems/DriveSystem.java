@@ -25,7 +25,7 @@ public class DriveSystem extends Subsystem
 	Encoder rightRearEnc = RobotMap.driveSystemRightRearEnc;
 	Ultrasonic ultrasonic = RobotMap.driveSystemUltrasonic;
 
-	DriveGyro driveGyro = Robot.driveGyro;
+//	DriveGyro driveGyro = Robot.driveGyro;
 
 	double initialRightRearEnc;
 	double initialLeftRearEnc;

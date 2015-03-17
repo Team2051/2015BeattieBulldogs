@@ -49,9 +49,9 @@ public class RobotMap
 	// right min and max recorded
 	// add left_minus_right from right pots to get left pots
 	// subtract left_minus_right from left pots to get right pots
-	public static final double LIFTER_MAX = .9;
-	public static final double LIFTER_MIN = .53;
-	public static final double LIFTER_LEFT_MINUS_RIGHT = .06;
+	public static final double LIFTER_MAX = .972;
+	public static final double LIFTER_MIN = .525;
+	public static final double LIFTER_LEFT_MINUS_RIGHT = .5;
 	public static final double LIFTER_RANGE = LIFTER_MAX - LIFTER_MIN;
 	public static final double LIFTER_ZERO = LIFTER_MIN + (LIFTER_RANGE / 6) * 1;
 	public static final double LIFTER_ONE = LIFTER_MIN + (LIFTER_RANGE / 6) * 2;
@@ -112,9 +112,9 @@ public class RobotMap
 		driveSystemMecanum.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, false);//true
 		driveSystemMecanum.setInvertedMotor(RobotDrive.MotorType.kRearLeft, false);//false
 
-		driveSystemGyro = new Gyro(0);
-		LiveWindow.addSensor("Drive System", "Gyro", driveSystemGyro);
-		driveSystemGyro.setSensitivity(0.007);
+//		driveSystemGyro = new Gyro(2);
+//		LiveWindow.addSensor("Drive System", "Gyro", driveSystemGyro);
+//		driveSystemGyro.setSensitivity(0.007);
 
 		// driveSystemUltrasonic = new Ultrasonic(11, 12);
 		// LiveWindow.addSensor("Drive System", "Ultrasonic",

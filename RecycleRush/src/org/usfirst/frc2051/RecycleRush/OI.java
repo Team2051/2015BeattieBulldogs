@@ -46,7 +46,7 @@ public class OI
 	public Joystick controlStick;
 
 	public JoystickButton disableGyroBtn;
-	public JoystickButton zeroGyroBtn;
+//	public JoystickButton zeroGyroBtn;
 	public JoystickButton driveForwardBtn;
 	public JoystickButton controlLifterBtn;
 	public JoystickButton captureInBtn;
@@ -65,8 +65,8 @@ public class OI
 		controlStick = new Joystick(1);
 
 		// DisableGyro is run as a toggle, unlike most commands
-		disableGyroBtn = new JoystickButton(driveStick, 11);
-		disableGyroBtn.toggleWhenPressed(new DisableGyro());
+//		disableGyroBtn = new JoystickButton(driveStick, 11);
+//		disableGyroBtn.toggleWhenPressed(new DisableGyro());
 
 		//zeroGyroBtn = new JoystickButton(driveStick, 9);
 		//zeroGyroBtn.whenPressed(new ZeroGyro());
@@ -118,7 +118,7 @@ public class OI
 		SmartDashboard.putData("Collector Pushout", new CollectorPushout());
 		SmartDashboard.putData("Collector Spin Right", new CollectorSpinRight());
 		SmartDashboard.putData("Collector Spin Left", new CollectorSpinLeft());
-		SmartDashboard.putData("Disable Drive Gyro", new DisableGyro());
+//		SmartDashboard.putData("Disable Drive Gyro", new DisableGyro());
 		SmartDashboard.putData("Do Nothing", new DoNothing());
 		SmartDashboard.putData("Drive Backward", new DriveBackward(.3, 12));
 		SmartDashboard.putData("Drive By Joystick", new DriveByJoystick());
@@ -132,7 +132,7 @@ public class OI
 		SmartDashboard.putData("Lifter Three", new LifterThree());
 		SmartDashboard.putData("Lifter Two", new LifterTwo());
 		SmartDashboard.putData("Lifter Zero", new LifterZero());
-		SmartDashboard.putData("Zero Drive Gyro", new ZeroGyro());
+//		SmartDashboard.putData("Zero Drive Gyro", new ZeroGyro());
 		SmartDashboard.putData("Dance", new AutonRight());
 	}
 
