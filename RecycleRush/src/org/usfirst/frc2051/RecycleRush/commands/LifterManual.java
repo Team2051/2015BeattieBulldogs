@@ -1,9 +1,7 @@
 package org.usfirst.frc2051.RecycleRush.commands;
 
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc2051.RecycleRush.OI;
 import org.usfirst.frc2051.RecycleRush.Robot;
 import org.usfirst.frc2051.RecycleRush.RobotMap;
@@ -19,24 +17,18 @@ public class LifterManual extends Command
 
 	AnalogPotentiometer lifterPosLeft = RobotMap.lifterPIDDARTPositionLeft;
 	AnalogPotentiometer lifterPosRight = RobotMap.lifterPIDDARTPositionRight;
-	DigitalInput lifterTopRight = RobotMap.lifterPIDLifterTopRight;
-	DigitalInput lifterBottomRight = RobotMap.lifterPIDLifterBottomRight;
-	DigitalInput lifterTopLeft = RobotMap.lifterPIDLifterTopLeft;
-	DigitalInput lifterBottomLeft = RobotMap.lifterPIDLifterBottomLeft;
 
 	public LifterManual()
 	
 	{
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.lifterPIDLeft);
-		requires(Robot.lifterPIDRight);
+		requires(Robot.lifterLeft);
+		requires(Robot.lifterRight);
 	}
 
 	// Called just before this Command runs the first time
 	protected void initialize()
 	{
-		Robot.lifterPIDLeft.enable();
-		Robot.lifterPIDRight.enable();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
@@ -50,12 +42,14 @@ public class LifterManual extends Command
 		
 		if (lifterSetPt > RobotMap.LIFTER_MAX)
 		{//remove brace upon pain of death
-			lifterSetPt = RobotMap.LIFTER_MAX;
+			Robot.lifterLeft.stop();
+			Robot.lifterRight.stop();
 		}
 		
 		if (lifterSetPt < RobotMap.LIFTER_MIN)
 		{
-			lifterSetPt = RobotMap.LIFTER_MIN;
+			Robot.lifterLeft.stop();
+			Robot.lifterRight.stop();
 		}
 		
 		Robot.lifterPIDLeft.setSetpoint(lifterSetPt);
@@ -73,8 +67,8 @@ public class LifterManual extends Command
 	// Called once after isFinished returns true
 	protected void end()
 	{
-		Robot.lifterPIDLeft.disable();
-		Robot.lifterPIDRight.disable();
+		Robot.lifterLeft.stop();
+		Robot.lifterRight.stop();
 	}
 
 	// Called when another command which requires one or more of the same

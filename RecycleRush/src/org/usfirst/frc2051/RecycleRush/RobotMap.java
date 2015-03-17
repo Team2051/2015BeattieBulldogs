@@ -43,14 +43,12 @@ public class RobotMap
 	static final double kI = .0000001;
 	static final double kD = .0000001;
 
-	// Lifter position potentiometer constants
-	// left 10K pot
-	// right 5 k pot
-	// right min and max recorded
-	// add left_minus_right from right pots to get left pots
-	// subtract left_minus_right from left pots to get right pots
-	public static final double LIFTER_MAX = .95;
-	public static final double LIFTER_MIN = .525;
+
+//	Respects left side as correct side
+//  Apply Dif constant to target locations on right side
+//	ex. Robot.lifterPIDRight.getPosition() > RobotMap.LIFTER_MIN - RobotMap.LIFTER_LEFT_MINUS_RIGHT
+	public static final double LIFTER_MAX = .877;
+	public static final double LIFTER_MIN = .374;
 	public static final double LIFTER_LEFT_MINUS_RIGHT = .5;
 	public static final double LIFTER_RANGE = LIFTER_MAX - LIFTER_MIN;
 	public static final double LIFTER_ZERO = LIFTER_MIN + (LIFTER_RANGE / 6) * 1;

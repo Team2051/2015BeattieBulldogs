@@ -4,6 +4,7 @@ import org.usfirst.frc2051.RecycleRush.Robot;
 import org.usfirst.frc2051.RecycleRush.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class LifterRightUp extends Command
 {
@@ -24,15 +25,16 @@ public class LifterRightUp extends Command
 	protected void execute()
 	{
 //		if(Robot.lifterPIDRight.getPosition() < RobotMap.LIFTER_MAX - RobotMap.LIFTER_LEFT_MINUS_RIGHT)
-		if(Robot.lifterPIDLeft.getPosition() < RobotMap.LIFTER_MAX)
+//		if(Robot.lifterPIDLeft.getPosition() < RobotMap.LIFTER_MAX)
 			Robot.lifterRight.up();
+			SmartDashboard.putNumber("Debug", Robot.lifterPIDRight.getPosition());
+
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished()
 	{
-		return Robot.lifterPIDRight.getPosition() >= RobotMap.LIFTER_MAX - RobotMap.LIFTER_LEFT_MINUS_RIGHT;
-
+		return false;
 	}
 
 	// Called once after isFinished returns true

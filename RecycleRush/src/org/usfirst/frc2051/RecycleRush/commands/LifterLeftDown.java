@@ -4,6 +4,7 @@ import org.usfirst.frc2051.RecycleRush.Robot;
 import org.usfirst.frc2051.RecycleRush.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class LifterLeftDown extends Command
 {
@@ -23,14 +24,16 @@ public class LifterLeftDown extends Command
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute()
 	{		
-		if(Robot.lifterPIDLeft.getPosition() > RobotMap.LIFTER_MIN)
+//		if(Robot.lifterPIDLeft.getPosition() > RobotMap.LIFTER_MIN)
 			Robot.lifterLeft.down();
+			SmartDashboard.putNumber("Debug", Robot.lifterPIDLeft.getPosition());
+
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished()
 	{
-		return Robot.lifterPIDLeft.getPosition() <= RobotMap.LIFTER_MIN;
+		return false;
 	}
 
 	// Called once after isFinished returns true
