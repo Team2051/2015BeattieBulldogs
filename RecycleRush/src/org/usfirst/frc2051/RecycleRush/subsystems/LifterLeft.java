@@ -27,11 +27,11 @@ public class LifterLeft extends Subsystem
 
 	public void up()
 	{
-		dARTMotorLeft.set(.4);
+		dARTMotorLeft.set(.5);
 	}
 
 	public void down()
 	{
-		dARTMotorLeft.set(-.4);
+		dARTMotorLeft.set(-.5);
 	}
 }

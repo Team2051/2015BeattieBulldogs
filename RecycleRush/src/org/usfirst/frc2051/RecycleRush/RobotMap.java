@@ -49,7 +49,7 @@ public class RobotMap
 	// right min and max recorded
 	// add left_minus_right from right pots to get left pots
 	// subtract left_minus_right from left pots to get right pots
-	public static final double LIFTER_MAX = .972;
+	public static final double LIFTER_MAX = .95;
 	public static final double LIFTER_MIN = .525;
 	public static final double LIFTER_LEFT_MINUS_RIGHT = .5;
 	public static final double LIFTER_RANGE = LIFTER_MAX - LIFTER_MIN;

@@ -56,12 +56,12 @@ public class Collector extends Subsystem
 	
 	public void angleIn()
 	{
-		collectorAngle.set(-1);
+		collectorAngle.set(-.7);
 	}
 	
 	public void angleOut()
 	{
-		collectorAngle.set(1);
+		collectorAngle.set(.7);
 	}
 	
 	public void angleStop()
