@@ -110,9 +110,9 @@ public class RobotMap
 		driveSystemMecanum.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, false);//true
 		driveSystemMecanum.setInvertedMotor(RobotDrive.MotorType.kRearLeft, false);//false
 
-//		driveSystemGyro = new Gyro(2);
-//		LiveWindow.addSensor("Drive System", "Gyro", driveSystemGyro);
-//		driveSystemGyro.setSensitivity(0.007);
+		driveSystemGyro = new Gyro(0);
+		LiveWindow.addSensor("Drive System", "Gyro", driveSystemGyro);
+		driveSystemGyro.setSensitivity(0.007);
 
 		// driveSystemUltrasonic = new Ultrasonic(11, 12);
 		// LiveWindow.addSensor("Drive System", "Ultrasonic",

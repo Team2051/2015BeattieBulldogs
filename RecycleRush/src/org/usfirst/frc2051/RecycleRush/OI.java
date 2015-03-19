@@ -134,6 +134,9 @@ public class OI
 		SmartDashboard.putData("Lifter Zero", new LifterZero());
 //		SmartDashboard.putData("Zero Drive Gyro", new ZeroGyro());
 		SmartDashboard.putData("Dance", new AutonRight());
+		SmartDashboard.putData("Auton Rotate Left", new AutonRotate(.2, Direction.kLEFT));
+		SmartDashboard.putData("Auton Rotate Right", new AutonRotate(.2, Direction.kRIGHT));
+
 	}
 
 	public Joystick getDriveStick()
@@ -185,6 +188,11 @@ public class OI
 	 */
 	public static double throttleSpeed(Joystick stick)
 	{
-		return (-stick.getThrottle() + 1) / 2;
+		final double min = 0.125;
+		double throttle = (-stick.getThrottle() + 1) / 2;
+		if(throttle < min)
+			throttle = min;
+//		SmartDashboard.putNumber("Throttle Speed Value", throttle);
+		return throttle;
 	}
 }
