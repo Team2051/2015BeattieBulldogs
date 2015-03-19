@@ -38,18 +38,18 @@ public class RobotMap
 	public static DigitalInput collectorCollectorRightTripped;
 	public static SpeedController collectorCollectorAngle;
 
-	// PID Constants
-	static final double kP = .0001;
-	static final double kI = .0000001;
-	static final double kD = .0000001;
+	// PID Constants for Lifter
+	public static final double kP = 5.0;
+	public static final double kI = 1.0;
+	public static final double kD = 0.0;
 
 
 //	Respects left side as correct side
 //  Apply Dif constant to target locations on right side
-//	ex. Robot.lifterPIDRight.getPosition() > RobotMap.LIFTER_MIN - RobotMap.LIFTER_LEFT_MINUS_RIGHT
-	public static final double LIFTER_MAX = .877;
-	public static final double LIFTER_MIN = .374;
-	public static final double LIFTER_LEFT_MINUS_RIGHT = .5;
+//	ex. Robot.lifterPIDRight.getPosition() + RobotMap.LIFTER_LEFT_MINUS_RIGHT > RobotMap.LIFTER_MIN
+	public static final double LIFTER_MAX = 0.930;
+	public static final double LIFTER_MIN = 0.550;
+	public static final double LIFTER_LEFT_MINUS_RIGHT = 0.5;
 	public static final double LIFTER_RANGE = LIFTER_MAX - LIFTER_MIN;
 	public static final double LIFTER_ZERO = LIFTER_MIN + (LIFTER_RANGE / 6) * 1;
 	public static final double LIFTER_ONE = LIFTER_MIN + (LIFTER_RANGE / 6) * 2;
@@ -118,11 +118,11 @@ public class RobotMap
 		// LiveWindow.addSensor("Drive System", "Ultrasonic",
 		// driveSystemUltrasonic);
 
-		lifterPIDDARTMotorLeft = new Talon(4);
-		LiveWindow.addActuator("Lifter PID", "DART Motors Right", (Talon) lifterPIDDARTMotorLeft);
+		lifterPIDDARTMotorLeft = new Talon(5);
+		LiveWindow.addActuator("Lifter PID", "DART Motors Left", (Talon) lifterPIDDARTMotorLeft);
 
-		lifterPIDDARTMotorRight = new Talon(5);
-		LiveWindow.addActuator("Lifter PID", "DART Motors Left", (Talon) lifterPIDDARTMotorRight);
+		lifterPIDDARTMotorRight = new Talon(4);
+		LiveWindow.addActuator("Lifter PID", "DART Motors Right", (Talon) lifterPIDDARTMotorRight);
 
 		lifterPIDDARTPositionLeft = new AnalogPotentiometer(1, 1.0, 0.0);
 		LiveWindow.addSensor("Lifter PID", "DART Position Left", lifterPIDDARTPositionLeft);

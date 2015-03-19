@@ -19,7 +19,7 @@ public class LifterPIDRight extends PIDSubsystem
 	// Initialize your subsystem here
 	public LifterPIDRight()
 	{
-		super("LifterPIDRight", 1.0, 0.0, 0.0);
+		super("LifterPIDRight", RobotMap.kP, RobotMap.kI, RobotMap.kD);
 		setAbsoluteTolerance(0.05);
 		setInputRange(0.0 /* min */, 1.0 /* max */);
 		getPIDController().setContinuous(false);
@@ -36,7 +36,7 @@ public class LifterPIDRight extends PIDSubsystem
 		// Return your input value for the PID loop
 		// e.g. a sensor, like a potentiometer:
 		// yourPot.getAverageVoltage() / kYourMaxVoltage;
-		return dARTPositionRight.pidGet();
+		return dARTPositionRight.pidGet() + RobotMap.LIFTER_LEFT_MINUS_RIGHT;
 	}
 
 	protected void usePIDOutput(double output)

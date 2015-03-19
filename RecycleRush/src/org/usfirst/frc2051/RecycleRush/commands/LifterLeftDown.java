@@ -24,10 +24,10 @@ public class LifterLeftDown extends Command
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute()
 	{		
-//		if(Robot.lifterPIDLeft.getPosition() > RobotMap.LIFTER_MIN)
+		if(Robot.lifterPIDLeft.getPosition() > RobotMap.LIFTER_MIN)
 			Robot.lifterLeft.down();
-			SmartDashboard.putNumber("Debug", Robot.lifterPIDLeft.getPosition());
-
+		else
+			Robot.lifterLeft.stop();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

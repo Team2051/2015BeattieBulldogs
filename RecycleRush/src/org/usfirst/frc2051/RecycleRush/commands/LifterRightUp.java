@@ -24,11 +24,10 @@ public class LifterRightUp extends Command
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute()
 	{
-//		if(Robot.lifterPIDRight.getPosition() < RobotMap.LIFTER_MAX - RobotMap.LIFTER_LEFT_MINUS_RIGHT)
-//		if(Robot.lifterPIDLeft.getPosition() < RobotMap.LIFTER_MAX)
+		if(Robot.lifterPIDRight.getPosition() < RobotMap.LIFTER_MAX)
 			Robot.lifterRight.up();
-			SmartDashboard.putNumber("Debug", Robot.lifterPIDRight.getPosition());
-
+		else
+			Robot.lifterRight.stop();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
