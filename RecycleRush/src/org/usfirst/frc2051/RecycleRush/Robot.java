@@ -49,7 +49,7 @@ public class Robot extends IterativeRobot
 		lifterPIDLeft = new LifterPIDLeft();
 		lifterPIDRight = new LifterPIDRight();
 		collector = new Collector();
-		//camera = new Camera();
+//		camera = new Camera();
 		lifterLeft = new LifterLeft();
 		lifterRight = new LifterRight();
 
