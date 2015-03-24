@@ -2,9 +2,7 @@ package org.usfirst.frc2051.RecycleRush.commands;
 
 import org.usfirst.frc2051.RecycleRush.Robot;
 import org.usfirst.frc2051.RecycleRush.RobotMap;
-
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class LifterLeftUp extends Command
 {

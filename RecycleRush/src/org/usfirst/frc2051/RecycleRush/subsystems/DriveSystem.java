@@ -1,7 +1,6 @@
 package org.usfirst.frc2051.RecycleRush.subsystems;
 
 import org.usfirst.frc2051.RecycleRush.OI;
-import org.usfirst.frc2051.RecycleRush.Robot;
 import org.usfirst.frc2051.RecycleRush.RobotMap;
 import org.usfirst.frc2051.RecycleRush.commands.*;
 

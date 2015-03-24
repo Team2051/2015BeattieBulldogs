@@ -1,6 +1,5 @@
 package org.usfirst.frc2051.RecycleRush.groups;
 
-import org.usfirst.frc2051.RecycleRush.RobotMap.Direction;
 import org.usfirst.frc2051.RecycleRush.commands.*;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
