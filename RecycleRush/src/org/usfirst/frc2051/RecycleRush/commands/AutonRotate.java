@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class AutonRotate extends Command {
 
 	double speed;
-	double angle = 90;
+	double angle = 70;
 	private Direction side;
 	
 

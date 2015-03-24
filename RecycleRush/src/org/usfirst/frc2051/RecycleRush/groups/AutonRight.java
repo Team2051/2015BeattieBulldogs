@@ -3,6 +3,7 @@ package org.usfirst.frc2051.RecycleRush.groups;
 import org.usfirst.frc2051.RecycleRush.RobotMap.Direction;
 import org.usfirst.frc2051.RecycleRush.commands.*;
 
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -32,17 +33,21 @@ public class AutonRight extends CommandGroup
 		// lower lifter
 		//addSequential(new LifterZero());
 		
-		// drive to box
-		addSequential(new DriveSidetoSide(.7, 3, Direction.kRIGHT));
+		// take tote in
+		addSequential(new AutonCollectorIn());	
 		
-		//lift box
-		//addSequential(new LifterOne());
+		// rotate with box to face forward
+		addSequential(new AutonRotate(.3, Direction.kLEFT));
 		
-		//stop for 2 seconds
-		//addSequential(new Delay(1));
-		
+		// lift tote up
+		addParallel(new LifterManual());
+
 		// move to auto zone
 		addSequential(new AutonDriveForward(.5));
+		
+		// rotate to fit in auto zone
+		addSequential(new AutonRotate(.3, Direction.kRIGHT));
+
 		
 	}
 }
