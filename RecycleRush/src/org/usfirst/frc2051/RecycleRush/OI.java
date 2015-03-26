@@ -59,6 +59,11 @@ public class OI
 	public JoystickButton lifterThreeBtn;
 	public JoystickButton lifterFourBtn;
 	public JoystickButton lifterContainerBtn;
+	public JoystickButton driveCaptureInBtn;
+	public JoystickButton driveCaptureOutBtn;
+	public JoystickButton driveCaptureLeftBtn;
+	public JoystickButton driveCaptureRightBtn;
+
 	public OI()
 	{
 		driveStick = new Joystick(0);
@@ -70,6 +75,17 @@ public class OI
 
 		//zeroGyroBtn = new JoystickButton(driveStick, 9);
 		//zeroGyroBtn.whenPressed(new ZeroGyro());
+		driveCaptureRightBtn = new JoystickButton(driveStick, 3);
+		driveCaptureRightBtn.whileHeld(new CollectorSpinRight());
+		
+		driveCaptureOutBtn = new JoystickButton(driveStick, 4);
+		driveCaptureRightBtn.whileHeld(new CollectorPushout());
+
+		driveCaptureLeftBtn = new JoystickButton(driveStick, 5);
+		driveCaptureRightBtn.whileHeld(new CollectorSpinLeft());
+
+		driveCaptureInBtn = new JoystickButton(driveStick, 6);
+		driveCaptureRightBtn.whileHeld(new CollectorIntake());
 
 		controlLifterBtn = new JoystickButton(controlStick, 1);
 		controlLifterBtn.toggleWhenPressed(new LifterManual());
@@ -93,7 +109,6 @@ public class OI
 		lifterTwoBtn = new JoystickButton(controlStick, 7);
 		lifterTwoBtn.whileHeld(new LifterLeftDown());
 //		lifterTwoBtn.whenPressed(new LifterTwo());
-		
 		
 		lifterZeroBtn = new JoystickButton(controlStick, 8);
 		lifterZeroBtn.whileHeld(new CollectorAngleOut());
