@@ -33,6 +33,9 @@ public class AutonRight extends CommandGroup
 		// lower lifter
 		//addSequential(new LifterZero());
 		
+		// close arms around tote
+		addSequential(new AutonCollectorAngleIn());
+		
 		// take tote in
 		//addSequential(new AutonCollectorIn());	
 		
@@ -40,14 +43,13 @@ public class AutonRight extends CommandGroup
 		addSequential(new LifterTwo());
 		
 		// rotate with box to face forward
-		addSequential(new AutonRotate(.3, Direction.kLEFT));
+		addSequential(new AutonRotate(.3, Direction.kRIGHT));
 
 		// move to auto zone
 		addSequential(new AutonDriveForward(.65));
 		
 		// rotate to fit in auto zone
-		addSequential(new AutonRotate(.3, Direction.kRIGHT));
+		addSequential(new AutonRotate(.3, Direction.kLEFT));
 
-		
 	}
 }

@@ -4,21 +4,21 @@ import org.usfirst.frc2051.RecycleRush.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class AutonCollectorIn extends Command {
+public class AutonCollectorAngleIn extends Command {
 
-	public AutonCollectorIn() 
+	public AutonCollectorAngleIn() 
 	{
 		requires(Robot.collector);
 	}
 
 	protected void initialize() 
 	{
-		setTimeout(.5);
+		setTimeout(1);
 	}
 
 	protected void execute() 
 	{
-		Robot.collector.in();
+		Robot.collector.angleIn();
 	}
 
 	protected boolean isFinished() 
@@ -28,7 +28,7 @@ public class AutonCollectorIn extends Command {
 
 	protected void end() 
 	{
-		Robot.collector.stop();
+		Robot.collector.angleStop();
 	}
 
 	protected void interrupted() 
