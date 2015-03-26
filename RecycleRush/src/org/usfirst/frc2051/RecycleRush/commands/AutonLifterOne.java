@@ -1,6 +1,7 @@
 package org.usfirst.frc2051.RecycleRush.commands;
 
 import org.usfirst.frc2051.RecycleRush.Robot;
+import org.usfirst.frc2051.RecycleRush.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -19,8 +20,16 @@ public class AutonLifterOne extends Command {
 
 	protected void execute() 
 	{
-		Robot.lifterLeft.up();
-		Robot.lifterRight.up();
+		if(Robot.lifterPIDLeft.getPosition() < RobotMap.LIFTER_MAX || Robot.lifterPIDRight.getPosition() < RobotMap.LIFTER_MAX)
+		{
+			Robot.lifterLeft.up();
+			Robot.lifterRight.up();
+		}
+		else
+		{
+			Robot.lifterLeft.stop();
+			Robot.lifterRight.stop();
+		}
 	}
 
 	protected boolean isFinished() 

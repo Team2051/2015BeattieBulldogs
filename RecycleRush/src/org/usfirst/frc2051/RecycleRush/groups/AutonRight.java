@@ -40,7 +40,7 @@ public class AutonRight extends CommandGroup
 		addSequential(new AutonRotate(.3, Direction.kLEFT));
 		
 		// lift tote up
-		addParallel(new LifterManual());
+		addParallel(new LifterOne());
 
 		// move to auto zone
 		addSequential(new AutonDriveForward(.5));

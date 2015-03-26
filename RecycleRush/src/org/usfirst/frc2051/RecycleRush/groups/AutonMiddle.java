@@ -43,7 +43,7 @@ public class AutonMiddle extends CommandGroup
 		// move to auto zone
 //		addSequential(new AutonDriveForward(.5));
 		
-		addSequential(new AutonLifterOne());
+		addSequential(new LifterOne());
 		
 	}
 }
