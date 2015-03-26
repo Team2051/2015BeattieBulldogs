@@ -13,7 +13,7 @@ public class AutonCollectorIn extends Command {
 
 	protected void initialize() 
 	{
-		setTimeout(.5);
+		setTimeout(1);
 	}
 
 	protected void execute() 
@@ -23,7 +23,7 @@ public class AutonCollectorIn extends Command {
 
 	protected boolean isFinished() 
 	{
-		return isTimedOut();
+		return isTimedOut() || Robot.collector.atLimitIn();
 	}
 
 	protected void end() 

@@ -33,25 +33,25 @@ public class Collector extends Subsystem
 	public void left()
 	{
 		RobotMap.collectorCollectorLeft.set(Relay.Value.kForward); 
-		RobotMap.collectorCollectorRight.set(Relay.Value.kForward);
+		RobotMap.collectorCollectorRight.set(Relay.Value.kReverse);//inverted
 	}
 
 	public void right()
 	{
 		RobotMap.collectorCollectorLeft.set(Relay.Value.kReverse); 
-		RobotMap.collectorCollectorRight.set(Relay.Value.kReverse);
+		RobotMap.collectorCollectorRight.set(Relay.Value.kForward);//inverted
 	}
 
 	public void in()
 	{
 		RobotMap.collectorCollectorLeft.set(Relay.Value.kReverse);
-		RobotMap.collectorCollectorRight.set(Relay.Value.kForward);
+		RobotMap.collectorCollectorRight.set(Relay.Value.kReverse);//inverted
 	} 
 
 	public void out()
 	{
 		RobotMap.collectorCollectorLeft.set(Relay.Value.kForward); 
-		RobotMap.collectorCollectorRight.set(Relay.Value.kReverse );
+		RobotMap.collectorCollectorRight.set(Relay.Value.kForward);//inverted
 	}
 	
 	public void angleIn()

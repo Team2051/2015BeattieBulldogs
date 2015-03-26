@@ -33,7 +33,7 @@ public class AutonLeft extends CommandGroup
 		//addSequential(new LifterZero());
 		
 		// drive to box
-		addSequential(new DriveSidetoSide(.7, 3, Direction.kLEFT));
+		//addSequential(new DriveSidetoSide(.7, 3, Direction.kLEFT));
 		
 		//lift box
 		//addSequential(new LifterOne());
@@ -42,7 +42,7 @@ public class AutonLeft extends CommandGroup
 		//addSequential(new Delay(1));
 		
 		// move to auto zone
-		addSequential(new AutonDriveForward(.5));
+		addSequential(new AutonDriveForward(.65));
 		
 	}
 }

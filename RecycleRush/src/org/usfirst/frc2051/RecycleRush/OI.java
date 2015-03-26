@@ -78,13 +78,13 @@ public class OI
 		driveCaptureRightBtn.whileHeld(new CollectorSpinRight());
 		
 		driveCaptureOutBtn = new JoystickButton(driveStick, 4);
-		driveCaptureRightBtn.whileHeld(new CollectorPushout());
+		driveCaptureOutBtn.whileHeld(new CollectorPushout());
 
 		driveCaptureLeftBtn = new JoystickButton(driveStick, 5);
-		driveCaptureRightBtn.whileHeld(new CollectorSpinLeft());
+		driveCaptureLeftBtn.whileHeld(new CollectorSpinLeft());
 
 		driveCaptureInBtn = new JoystickButton(driveStick, 6);
-		driveCaptureRightBtn.whileHeld(new CollectorIntake());
+		driveCaptureInBtn.whileHeld(new CollectorIntake());
 
 		controlLifterBtn = new JoystickButton(controlStick, 1);
 		controlLifterBtn.toggleWhenPressed(new LifterManual());
