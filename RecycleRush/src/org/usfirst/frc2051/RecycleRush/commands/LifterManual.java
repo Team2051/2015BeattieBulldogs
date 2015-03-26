@@ -51,8 +51,9 @@ public class LifterManual extends Command
 			lifterSetPt = RobotMap.LIFTER_MIN;
 		}
 
-			Robot.lifterPIDLeft.setSetpoint(lifterSetPt);
-			Robot.lifterPIDRight.setSetpoint(lifterSetPt);
+		SmartDashboard.putNumber("Manual Lifter SetPoint", lifterSetPt);
+		Robot.lifterPIDLeft.setSetpoint(lifterSetPt);
+		Robot.lifterPIDRight.setSetpoint(lifterSetPt);
 	}
 	
 	// Make this return true when this Command no longer needs to run execute()
