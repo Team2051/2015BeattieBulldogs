@@ -61,9 +61,9 @@ public class Robot extends IterativeRobot
 
 		// Create SmartDashboard menu to select the autonomous period command
 		autoChooser = new SendableChooser();
-		autoChooser.addDefault("Right Side Forward", new AutonRight());
-		autoChooser.addObject("Left Side Forward", new AutonLeft());
-		autoChooser.addObject("Middle Area Forward", new DoNothing());
+		autoChooser.addDefault("Robot into Auton Zone", new AutonLeft());
+		autoChooser.addObject("(Right Side) Tote and Robot Auton", new AutonRight());
+		autoChooser.addObject("Do Nothing", new DoNothing());
 		SmartDashboard.putData("Auto Chooser", autoChooser);
 	}
 

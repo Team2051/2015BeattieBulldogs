@@ -37,7 +37,7 @@ public class AutonRight extends CommandGroup
 		addSequential(new AutonCollectorAngleIn());
 		
 		// take tote in
-		//addSequential(new AutonCollectorIn());	
+		addSequential(new AutonCollectorIn());	
 		
 		// lift tote up
 		addSequential(new LifterTwo());
