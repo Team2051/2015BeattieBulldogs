@@ -16,11 +16,10 @@ public class LifterManual extends Command
 	double lifterSetPtRatio = RobotMap.LIFTER_RANGE / (lifterConst * 50);
 
 	public LifterManual()
-	
 	{
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.lifterLeft);
-		requires(Robot.lifterRight);
+		requires(Robot.lifterPIDLeft);
+		requires(Robot.lifterPIDRight);
 	}
 
 	// Called just before this Command runs the first time
@@ -29,29 +28,25 @@ public class LifterManual extends Command
 		Robot.lifterPIDLeft.enable();
 		Robot.lifterPIDRight.enable();
 		SmartDashboard.putBoolean("Manual Lifter Enabled", true);
-
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute()
-	{		
-
+	{
 		//averages of potentiometer outputs
 		double avgPot = (Robot.lifterPIDLeft.getPosition() + Robot.lifterPIDRight.getPosition()) / 2;
-		
+
 		//inverted joystick input raised or lowered to reach target distance
 		double lifterSetPt = avgPot + OI.deadBand(-Robot.oi.controlStick.getY()) * lifterSetPtRatio;
 		if (lifterSetPt > RobotMap.LIFTER_MAX)
-		{//remove brace upon pain of death
 			lifterSetPt = RobotMap.LIFTER_MAX;
-		}
-		
 		if (lifterSetPt < RobotMap.LIFTER_MIN)
-		{
 			lifterSetPt = RobotMap.LIFTER_MIN;
-		}
 
+		SmartDashboard.putNumber("Manual Lifter left pos", Robot.lifterPIDLeft.getPosition());
+		SmartDashboard.putNumber("Manual Lifter avgPot", avgPot);
 		SmartDashboard.putNumber("Manual Lifter SetPoint", lifterSetPt);
+
 		Robot.lifterPIDLeft.setSetpoint(lifterSetPt);
 		Robot.lifterPIDRight.setSetpoint(lifterSetPt);
 	}
@@ -70,7 +65,6 @@ public class LifterManual extends Command
 		Robot.lifterPIDLeft.disable();
 		Robot.lifterPIDRight.disable();		
 		SmartDashboard.putBoolean("Manual Lifter Enabled", false);
-
 	}
 
 	// Called when another command which requires one or more of the same
