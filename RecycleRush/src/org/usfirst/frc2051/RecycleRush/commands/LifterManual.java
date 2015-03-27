@@ -25,43 +25,30 @@ public class LifterManual extends Command
 	// Called just before this Command runs the first time
 	protected void initialize()
 	{
-		//averages of potentiometer outputs
-		double avgPot = (Robot.lifterPIDLeft.getPosition() + Robot.lifterPIDRight.getPosition()) / 2;
-		//level the lifter by setting both sides to the average
-		Robot.lifterPIDLeft.setSetpoint(avgPot);
-		Robot.lifterPIDRight.setSetpoint(avgPot);
-
 		Robot.lifterPIDLeft.enable();
 		Robot.lifterPIDRight.enable();
-
 		SmartDashboard.putBoolean("Manual Lifter Enabled", true);
-		SmartDashboard.putNumber("Manual Lifter left pos", Robot.lifterPIDLeft.getPosition());
-		SmartDashboard.putNumber("Manual Lifter avgPot", avgPot);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
-	protected void execute() {
-		// current set point value
-		double current = Robot.lifterPIDLeft.getSetpoint();
-		// inverted joystick input raised or lowered to reach target distance
-		double speed = OI.deadBand(-Robot.oi.controlStick.getY());
+	protected void execute()
+	{
+		//averages of potentiometer outputs
+		double avgPot = (Robot.lifterPIDLeft.getPosition() + Robot.lifterPIDRight.getPosition()) / 2;
 
-		// only change the set point if the joystick calls for it
-		// otherwise, the mechanism will tend to droop downward
-		if (speed != 0) {
-			double lifterSetPt = current + speed * lifterSetPtRatio;
-			if (lifterSetPt > RobotMap.LIFTER_MAX)
-				lifterSetPt = RobotMap.LIFTER_MAX;
-			if (lifterSetPt < RobotMap.LIFTER_MIN)
-				lifterSetPt = RobotMap.LIFTER_MIN;
-			Robot.lifterPIDLeft.setSetpoint(lifterSetPt);
-			Robot.lifterPIDRight.setSetpoint(lifterSetPt);
-			SmartDashboard.putNumber("Manual Lifter SetPoint", lifterSetPt);
-		}
+		//inverted joystick input raised or lowered to reach target distance
+		double lifterSetPt = avgPot + OI.deadBand(-Robot.oi.controlStick.getY()) * lifterSetPtRatio;
+		if (lifterSetPt > RobotMap.LIFTER_MAX)
+			lifterSetPt = RobotMap.LIFTER_MAX;
+		if (lifterSetPt < RobotMap.LIFTER_MIN)
+			lifterSetPt = RobotMap.LIFTER_MIN;
 
 		SmartDashboard.putNumber("Manual Lifter left pos", Robot.lifterPIDLeft.getPosition());
-		SmartDashboard.putNumber("Manual Lifter current", current);
-		SmartDashboard.putNumber("Manual Lifter speed", speed);
+		SmartDashboard.putNumber("Manual Lifter avgPot", avgPot);
+		SmartDashboard.putNumber("Manual Lifter SetPoint", lifterSetPt);
+
+		Robot.lifterPIDLeft.setSetpoint(lifterSetPt);
+		Robot.lifterPIDRight.setSetpoint(lifterSetPt);
 	}
 	
 	// Make this return true when this Command no longer needs to run execute()
