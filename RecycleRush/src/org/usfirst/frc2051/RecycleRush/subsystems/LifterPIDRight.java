@@ -55,6 +55,6 @@ public class LifterPIDRight extends PIDSubsystem
 	
 	public boolean atSetLimit()
 	{
-		return ((dARTPositionRight.get() > RobotMap.LIFTER_MAX) || (dARTPositionRight.get() < RobotMap.LIFTER_MIN));
+		return ((dARTPositionRight.get() >= RobotMap.LIFTER_MAX) || (dARTPositionRight.get() <= RobotMap.LIFTER_MIN));
 	}
 }
